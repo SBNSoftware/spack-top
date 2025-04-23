@@ -4,3 +4,9 @@
 [submodule "spack-repos"]
 	path = spack-repos
 	url = git@github.com:SBNSoftware/spack-repos.git
+[submodule "fermi-spack-tools"]
+	path = fermi-spack-tools
+	url = https://github.com/FNALssi/fermi-spack-tools.git
+[submodule "spack-mpd"]
+	path = spack-mpd
+	url = https://github.com/eflumerf/spack-mpd.git
