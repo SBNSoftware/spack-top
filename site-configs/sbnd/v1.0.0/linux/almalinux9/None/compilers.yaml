@@ -1,0 +1,14 @@
+compilers:
+- compiler:
+    spec: gcc@=13.1.0
+    paths:
+      cc: /daq/software/spack_packages/gcc/13.1.0/linux-almalinux9-x86_64_v2-gcc-13.1.0-526etz47ptvqeyja6536mxf75ak4w2qm/bin/gcc
+      cxx: /daq/software/spack_packages/gcc/13.1.0/linux-almalinux9-x86_64_v2-gcc-13.1.0-526etz47ptvqeyja6536mxf75ak4w2qm/bin/g++
+      f77: /daq/software/spack_packages/gcc/13.1.0/linux-almalinux9-x86_64_v2-gcc-13.1.0-526etz47ptvqeyja6536mxf75ak4w2qm/bin/gfortran
+      fc: /daq/software/spack_packages/gcc/13.1.0/linux-almalinux9-x86_64_v2-gcc-13.1.0-526etz47ptvqeyja6536mxf75ak4w2qm/bin/gfortran
+    flags: {}
+    operating_system: almalinux9
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []

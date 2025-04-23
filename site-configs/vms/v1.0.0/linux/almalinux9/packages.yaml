@@ -1,0 +1,48 @@
+packages:
+  all:
+    target:
+      - x86_64_v2
+    providers:
+      pkgconfig::
+        - pkg-config
+        - pkgconf
+      libc::
+        - glibc
+      iconv::
+        - glibc
+      rpc::
+        - glibc
+  blas:
+    require: openblas
+  fftw-api:
+    require: fftw
+  go-external-or-gccgo-bootstrap:
+    require: go-bootstrap
+  gl:
+    require: glx
+  glu:
+    require: mesa-glu
+  golang:
+    require: go
+  java:
+    require: openjdk
+  jpeg:
+    require: libjpeg-turbo
+  lapack:
+    require: openblas
+  libglx:
+    require: mesa+glx
+  libllvm:
+    require: llvm
+  libosmesa:
+    require: mesa+osmesa
+  mysql-client:
+    require:  mariadb-c-client
+  tbb:
+    require: intel-tbb-oneapi
+  unwind:
+    require: libunwind
+  uuid:
+    require: libuuid
+  yacc:
+    require: bison

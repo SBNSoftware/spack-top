@@ -1,0 +1,6 @@
+repos:
+- /daq/software/spack_packages/spack/v1.0.1.sbnd/spack-repos/mpd
+- /daq/software/spack_packages/spack/v1.0.1.sbnd/spack-repos/sbn-spack
+- /daq/software/spack_packages/spack/v1.0.1.sbnd/spack-repos/artdaq-spack
+- /daq/software/spack_packages/spack/v1.0.1.sbnd/spack-repos/fnal_art
+- /daq/software/spack_packages/spack/v1.0.1.sbnd/spack-repos/scd_recipes
