@@ -1,0 +1,6 @@
+[submodule "NULL"]
+	path = NULL
+	url = git@github.com:SBNSoftware/spack.git
+[submodule "spack-repos"]
+	path = spack-repos
+	url = git@github.com:SBNSoftware/spack-repos.git
