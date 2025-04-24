@@ -152,6 +152,10 @@ update_buildcache_index() {
     }
 }
 
+spack_reindex() {
+  spack reindex
+}
+
 process_version_qualifier() {
     local spack_dir="$1"
     local spack_version="$2"
@@ -165,6 +169,7 @@ process_version_qualifier() {
     fi
     
     install_package "$version" "$qualifier"
+    spack_reindex
     generate_spec "$spack_dir" "$spack_version" "$version" "$qualifier"
     generate_hashes_v2 "$spack_dir" "$spack_version" "$version" "$qualifier"
     push_to_buildcache "$spack_dir" "$spack_version" "$mirror_base" "$version" "$qualifier"
