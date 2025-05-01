@@ -1,5 +1,5 @@
 -- linux-scientific7-x86_64_v2 / gcc@13.1.0 ---------------------
-wl24vhv artdaq-suite@v3_13_02%gcc +db~demo+epics+pcp build_system=bundle s=131
+hea55h3 artdaq-suite@v3_13_02%gcc +db~demo+epics+pcp build_system=bundle cxxstd=20 s=131
 fu3bio3     art-suite@s131%gcc +root build_system=bundle
 a5n573k         art@3.14.04%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
 5psde3m         art-root-io@1.13.06%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make

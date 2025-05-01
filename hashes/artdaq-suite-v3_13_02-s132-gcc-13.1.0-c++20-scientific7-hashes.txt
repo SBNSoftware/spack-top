@@ -1,5 +1,5 @@
 -- linux-scientific7-x86_64_v2 / gcc@13.1.0 ---------------------
-bskg5de artdaq-suite@v3_13_01%gcc +db~demo+epics+pcp build_system=bundle s=132
+f4rqvux artdaq-suite@v3_13_02%gcc +db~demo+epics+pcp build_system=bundle cxxstd=20 s=132
 z6vrpvf     art-suite@s132%gcc +root build_system=bundle
 n7xku7f         art@3.15.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
 2id5xl5         art-root-io@1.14.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
@@ -129,19 +129,19 @@ civajpu             xxhash@0.8.3%gcc  build_system=makefile
 yweteca         sqlite@3.40.1%gcc +column_metadata+dynamic_extensions+fts~functions+rtree build_system=autotools
 an7kzyh         xrootd@5.5.5%gcc ~client_only+davix+http~ipo~krb5~python+readline~scitokens-cpp build_system=cmake build_type=Release cxxstd=14 generator=make patches=0d03eed,3596f45
 lpdd3oz             json-c@0.18%gcc ~ipo build_system=cmake build_type=Release generator=make
-lcp4p54     artdaq@v3_13_01%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+cd643rn     artdaq@v3_13_02%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
 wgmb4ht         gmake@4.4.1%gcc ~guile build_system=generic
 aeorjye         swig@4.1.1%gcc  build_system=autotools
 7wy3ubz             pcre2@10.44%gcc ~jit+multibyte+pic build_system=autotools
 g3jkbkq         xmlrpc-c@1.51.06%gcc +curl build_system=autotools
-anciamc     artdaq-core@v3_10_03%gcc ~doc~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
-zetvykz     artdaq-daqinterface@v3_13_01%gcc ~ipo build_system=cmake build_type=Release generator=make
-5f2h7qn     artdaq-database@v1_10_00%gcc +builtin_fhicl~ipo build_system=cmake build_type=Release cxxstd=20 generator=make patches=b27a7f3
+pkvwqws     artdaq-core@v3_10_02%gcc ~doc~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+6c56rpq     artdaq-daqinterface@v3_14_00%gcc ~ipo build_system=cmake build_type=Release generator=make patches=657f374
+jxfkptz     artdaq-database@v1_10_00%gcc +builtin_fhicl~ipo build_system=cmake build_type=Release cxxstd=20 generator=make patches=b27a7f3
 chp2otf         curl@8.11.1%gcc ~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs=shared,static tls=openssl
 7ye54ws             nghttp2@1.64.0%gcc  build_system=autotools
-klhztqd     artdaq-epics-plugin@v1_06_01%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+qwll4kq     artdaq-epics-plugin@v1_06_00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
 xj5gmm6         epics-base@7.0.6.1%gcc  build_system=makefile
-22iaem6     artdaq-mfextensions@v1_09_01%gcc +curl~ipo+kafka build_system=cmake build_type=Release cxxstd=20 generator=make
+55ihqow     artdaq-mfextensions@v1_09_00%gcc +curl~ipo+kafka build_system=cmake build_type=Release cxxstd=20 generator=make
 h3sdea2         librdkafka@2.8.0%gcc  build_system=autotools
 k6kdcwv             zlib@1.3.1%gcc +optimize+pic+shared build_system=makefile
 x2i6k5b         qt@5.15.16%gcc ~dbus~debug~doc~examples~framework~gtk+gui~location~opengl~phonon+shared+sql+ssl+tools~webkit build_system=generic patches=2081e9c,51aeba5,75bcb42,78c70fb,7f34d48,84b0991,9378afd
@@ -241,11 +241,11 @@ v6mpojd             xcb-util-renderutil@0.3.10%gcc  build_system=autotools
 64xole7             xcb-util-wm@0.4.2%gcc  build_system=autotools
 bsy3vex                 m4@1.4.19%gcc +sigsegv build_system=autotools patches=9dc5fbd,bfdffa7
 bgkbfba                     libsigsegv@2.14%gcc  build_system=autotools
-fphkyr5     artdaq-utilities@v1_09_01%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+gzs76na     artdaq-utilities@v1_09_00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
 q72hlei     cetmodules@3.26.00%gcc ~docs~ipo~versioned-docs build_system=cmake build_type=Release generator=make
 x6c4yjp         perl@5.40.0%gcc +cpanm+opcode+open+shared+threads build_system=generic
 q2xqjwi             berkeley-db@18.1.40%gcc +cxx~docs+stl build_system=autotools patches=26090f4,b231fcc
 irn2mb7     gcc-runtime@13.1.0%gcc  build_system=generic
 ctgcpfq     glibc@2.17%gcc  build_system=autotools patches=be65fec,e179c43
-exivdb7     trace@v3_17_13%gcc ~ipo~kmod+mf build_system=cmake build_type=Release generator=make patches=ab6c1d8
+2kjbt6a     trace@v3_17_11%gcc ~ipo~kmod+mf build_system=cmake build_type=Release generator=make patches=ab6c1d8
 

@@ -1,4 +1,4 @@
-[+]  artdaq-suite@v3_13_01%gcc@13.1.0+db~demo+epics+pcp build_system=bundle s=131 arch=linux-scientific7-x86_64_v2
+[+]  artdaq-suite@v3_13_02%gcc@13.1.0+db~demo+epics+pcp build_system=bundle cxxstd=20 s=131 arch=linux-scientific7-x86_64_v2
 [+]      ^art-suite@s131%gcc@13.1.0+root build_system=bundle arch=linux-scientific7-x86_64_v2
 [+]          ^art@3.14.04%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
 [+]          ^art-root-io@1.13.06%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
@@ -125,19 +125,19 @@
 [+]          ^sqlite@3.40.1%gcc@13.1.0+column_metadata+dynamic_extensions+fts~functions+rtree build_system=autotools arch=linux-scientific7-x86_64_v2
 [+]          ^xrootd@5.5.5%gcc@13.1.0~client_only+davix+http~ipo~krb5~python+readline~scitokens-cpp build_system=cmake build_type=Release cxxstd=14 generator=make patches=0d03eed,3596f45 arch=linux-scientific7-x86_64_v2
 [+]              ^json-c@0.18%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq@v3_13_01%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq@v3_13_02%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
 [+]          ^gmake@4.4.1%gcc@13.1.0~guile build_system=generic arch=linux-scientific7-x86_64_v2
 [+]          ^swig@4.1.1%gcc@13.1.0 build_system=autotools arch=linux-scientific7-x86_64_v2
 [+]              ^pcre2@10.44%gcc@13.1.0~jit+multibyte+pic build_system=autotools arch=linux-scientific7-x86_64_v2
 [+]          ^xmlrpc-c@1.51.06%gcc@13.1.0+curl build_system=autotools arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-core@v3_10_03%gcc@13.1.0~doc~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-daqinterface@v3_13_01%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-database@v1_10_00%gcc@13.1.0+builtin_fhicl~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-core@v3_10_02%gcc@13.1.0~doc~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-daqinterface@v3_14_00%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make patches=657f374 arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-database@v1_10_00%gcc@13.1.0+builtin_fhicl~ipo build_system=cmake build_type=Release cxxstd=20 generator=make patches=b27a7f3 arch=linux-scientific7-x86_64_v2
 [+]          ^curl@8.11.1%gcc@13.1.0~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs=shared,static tls=openssl arch=linux-scientific7-x86_64_v2
 [+]              ^nghttp2@1.64.0%gcc@13.1.0 build_system=autotools arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-epics-plugin@v1_06_01%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-epics-plugin@v1_06_00%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
 [+]          ^epics-base@7.0.6.1%gcc@13.1.0 build_system=makefile arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-mfextensions@v1_09_01%gcc@13.1.0+curl~ipo+kafka build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-mfextensions@v1_09_00%gcc@13.1.0+curl~ipo+kafka build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
 [+]          ^librdkafka@2.8.0%gcc@13.1.0 build_system=autotools arch=linux-scientific7-x86_64_v2
 [+]              ^zlib@1.3.1%gcc@13.1.0+optimize+pic+shared build_system=makefile arch=linux-scientific7-x86_64_v2
 [+]          ^qt@5.15.16%gcc@13.1.0~dbus~debug~doc~examples~framework~gtk+gui~location~opengl~phonon+shared+sql+ssl+tools~webkit build_system=generic patches=2081e9c,51aeba5,75bcb42,78c70fb,7f34d48,84b0991,9378afd arch=linux-scientific7-x86_64_v2
@@ -237,11 +237,11 @@
 [+]              ^xcb-util-wm@0.4.2%gcc@13.1.0 build_system=autotools arch=linux-scientific7-x86_64_v2
 [+]                  ^m4@1.4.19%gcc@13.1.0+sigsegv build_system=autotools patches=9dc5fbd,bfdffa7 arch=linux-scientific7-x86_64_v2
 [+]                      ^libsigsegv@2.14%gcc@13.1.0 build_system=autotools arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-utilities@v1_09_01%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-utilities@v1_09_00%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
 [+]      ^cetmodules@3.26.00%gcc@13.1.0~docs~ipo~versioned-docs build_system=cmake build_type=Release generator=make arch=linux-scientific7-x86_64_v2
 [+]          ^perl@5.40.0%gcc@13.1.0+cpanm+opcode+open+shared+threads build_system=generic arch=linux-scientific7-x86_64_v2
 [+]              ^berkeley-db@18.1.40%gcc@13.1.0+cxx~docs+stl build_system=autotools patches=26090f4,b231fcc arch=linux-scientific7-x86_64_v2
 [+]      ^gcc-runtime@13.1.0%gcc@13.1.0 build_system=generic arch=linux-scientific7-x86_64_v2
 [e]      ^glibc@2.17%gcc@13.1.0 build_system=autotools patches=be65fec,e179c43 arch=linux-scientific7-x86_64_v2
-[+]      ^trace@v3_17_13%gcc@13.1.0~ipo~kmod+mf build_system=cmake build_type=Release generator=make patches=ab6c1d8 arch=linux-scientific7-x86_64_v2
+[+]      ^trace@v3_17_11%gcc@13.1.0~ipo~kmod+mf build_system=cmake build_type=Release generator=make patches=ab6c1d8 arch=linux-scientific7-x86_64_v2
 

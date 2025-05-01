@@ -1,5 +1,5 @@
-[+]  sbndaq-suite@migration_artdaqv3_13_02%gcc@13.1.0~gdb+icarus+sbnd build_system=bundle s=131 arch=linux-scientific7-x86_64_v2
-[+]      ^artdaq-suite@v3_13_02%gcc@13.1.0+db+demo+epics~pcp build_system=bundle s=131 arch=linux-scientific7-x86_64_v2
+[+]  sbndaq-suite@migration_artdaqv3_13_02%gcc@13.1.0~gdb+icarus+sbnd build_system=bundle cxxstd=20 s=131 arch=linux-scientific7-x86_64_v2
+[+]      ^artdaq-suite@v3_13_02%gcc@13.1.0+db+demo+epics~pcp build_system=bundle cxxstd=17 s=131 arch=linux-scientific7-x86_64_v2
 [+]          ^art-suite@s131%gcc@13.1.0+root build_system=bundle arch=linux-scientific7-x86_64_v2
 [+]              ^art@3.14.04%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
 [+]              ^art-root-io@1.13.06%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-scientific7-x86_64_v2
