@@ -1,0 +1,251 @@
+-- linux-almalinux9-x86_64_v2 / gcc@13.1.0 ----------------------
+q4gwbkr artdaq-suite@v4_01_00%gcc +db~demo+epics+pcp build_system=bundle cxxstd=20 s=132
+una4xcz     art-suite@s132%gcc +root build_system=bundle
+tmwsw4g         art@3.15.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+qypptyw         art-root-io@1.14.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+hts4r4c         boost@1.82.0%gcc +atomic+chrono~clanglibcpp~container~context~contract~coroutine+date_time~debug+exception~fiber+filesystem+graph~graph_parallel+icu+iostreams+json+locale+log+math~mpi+multithreaded~nowide~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded~stacktrace+system~taggedlayout+test+thread+timer~type_erasure~url~versionedlayout+wave build_system=generic cxxstd=20 patches=a440f96,a7c807f,b8569d7 visibility=hidden
+kuf3k2j             bzip2@1.0.8%gcc ~debug~pic+shared build_system=generic
+xb6hnui                 diffutils@3.10%gcc  build_system=autotools
+cqcfhk7             xz@5.4.6%gcc ~pic build_system=autotools libs=shared,static
+4gvzwht         canvas@3.17.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+kpzvrt5         canvas-root-io@1.14.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+ql4hz6q         catch2@3.3.2%gcc ~ipo+pic~shared build_system=cmake build_type=Release cxxstd=17 generator=make
+6jtzmjd         cetlib@3.19.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+iy7ho52         cetlib-except@1.10.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+v4huthy         cetmodules@3.27.02%gcc ~docs~ipo~versioned-docs build_system=cmake build_type=Release generator=make
+4neusvf         clhep@2.4.7.1%gcc ~cms~ipo build_system=cmake build_type=Release cxxstd=11 generator=make
+g224o7g         cmake@3.31.5%gcc ~doc+ncurses+ownlibs~qtgui build_system=generic build_type=Release
+nobfqgi             ncurses@6.5%gcc ~symlinks+termlib abi=none build_system=autotools patches=7a351bc
+ddjwo7t         fftw@3.3.10%gcc +mpi~openmp~pfft_patches+shared build_system=autotools patches=872cff9 precision=double,float
+6w7pdgp             openmpi@5.0.6%gcc +atomics~cuda~debug~gpfs~internal-hwloc~internal-libevent~internal-pmix~java~lustre~memchecker~openshmem~romio+rsh~static~two_level_namespace+vt+wrapper-rpath build_system=autotools fabrics=none romio-filesystem=none schedulers=none
+yz55fz7                 libevent@2.1.12%gcc +openssl build_system=autotools
+a5kjmew                 numactl@2.0.18%gcc  build_system=autotools
+wadbp4x                 openssh@9.9p1%gcc +gssapi build_system=autotools
+uavgiey                     krb5@1.21.3%gcc +shared build_system=autotools patches=eec2724
+cugnevu                     libedit@3.1-20240808%gcc  build_system=autotools
+dm6vmap                 pmix@5.0.5%gcc ~munge~python build_system=autotools
+7wzyfhp         fhicl-cpp@4.19.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+6btdzhw         gsl@2.7.1%gcc ~external-cblas+pic+shared build_system=autotools
+7l4qy2u         hep-concurrency@1.10.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+jshscfk         intel-tbb-oneapi@2021.9.0%gcc ~examples~ipo build_system=cmake build_type=Release cxxstd=default generator=make
+2ohwbp5             hwloc@2.11.1%gcc ~cairo~cuda~gl~level_zero~libudev+libxml2~nvml~opencl+pci~rocm build_system=autotools libs=shared,static
+uiznzhu                 libpciaccess@0.17%gcc  build_system=autotools
+65wb343         libxml2@2.9.14%gcc ~http+pic~python+shared build_system=autotools patches=5dc43fe
+mqxm6p4         messagefacility@2.11.00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+ifzupnp         openblas@0.3.23%gcc ~bignuma~consistent_fpcsr+dynamic_dispatch+fortran~ilp64+locking+pic+shared build_system=makefile symbol_suffix=none threads=none
+tfgsitn         postgresql@15.2%gcc ~client_only~gssapi~perl~python~tcl~threadsafe~xml build_system=autotools lineedit=readline
+cm52wbt         py-numpy@1.24.3%gcc  build_system=python_pip patches=873745d
+2z6ohaz             py-cython@0.29.36%gcc  build_system=python_pip patches=c4369ad
+zvrfslh             py-pip@24.3.1%gcc  build_system=generic
+jfwc4pm             py-setuptools@63.4.3%gcc  build_system=generic
+d4wsn3v             py-wheel@0.41.2%gcc  build_system=generic
+l7itzvy             python-venv@1.0%gcc  build_system=generic
+yf7l5yj         py-pybind11@2.10.4%gcc +ipo build_system=cmake build_type=Release generator=ninja
+vzbjziv             ninja@1.12.1%gcc +re2c build_system=generic patches=93f4bb3
+grhblku                 re2c@3.1%gcc  build_system=autotools
+6f533mo         pythia6@6.4.28%gcc ~ipo~root build_system=cmake build_type=Release generator=make nmxhep=4000 patches=d081752
+ehxmbym         python@3.9.15%gcc +bz2+crypt+ctypes+dbm~debug+libxml2+lzma~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib build_system=generic patches=0d98e93,4c24573,ebdca64,f2fd060
+wd2vu7y             expat@2.6.4%gcc +libbsd build_system=autotools
+bwgfgz5                 libbsd@0.12.2%gcc  build_system=autotools
+zk365rv                     libmd@1.0.4%gcc  build_system=autotools
+lgkk4s4             gdbm@1.23%gcc  build_system=autotools
+7uad7d5             gettext@0.23.1%gcc +bzip2+curses+git~libunistring+libxml2+pic+shared+tar+xz build_system=autotools
+xxpy3mv                 tar@1.35%gcc  build_system=autotools zip=pigz
+qjfp3de                     pigz@2.8%gcc  build_system=makefile
+k3frxfy             libffi@3.4.6%gcc  build_system=autotools
+f2ulfrs             libuuid@1.0.3%gcc  build_system=autotools
+zqlbtwp             libxcrypt@4.4.35%gcc ~obsolete_api build_system=autotools patches=4885da3
+mtbjbjk         range-v3@0.12.0%gcc ~doc~examples~ipo~perf build_system=cmake build_type=Release cxxstd=11 generator=make
+44tv76i         root@6.30.06%gcc ~aqua~arrow~cuda~cudnn+davix~dcache~emacs+examples~fftw~fits~fortran+gdml+geom+geombuilder+gminimal~graphviz+gsl+http~ipo+math+minuit+mlp~mysql+opengl~oracle~postgres~pythia6~pythia8+python~r+roofit+root7+rpath~shadow+spectrum~sqlite~ssl+tbb+threads+tmva+tmva-cpu~tmva-gpu~tmva-pymva+tmva-sofie+unuran~vc+vdt~veccore+webgui+x+xml~xrootd build_system=cmake build_type=Release cxxstd=20 generator=make patches=22af347
+nizlw4l             davix@0.8.10%gcc ~ipo~thirdparty build_system=cmake build_type=Release cxxstd=11 generator=make
+hjkmoyf                 rapidjson@1.2.0-2024-08-16%gcc ~doc~ipo build_system=cmake build_type=Release generator=make patches=ee123c7
+thmes6g             fcgi@2.4.4%gcc  build_system=autotools
+thuafkp             ftgl@2.4.0%gcc ~ipo+shared build_system=cmake build_type=Release cxxstd=17 generator=make patches=001908e
+ins6twx             gl2ps@1.4.2%gcc ~doc~ipo+png+zlib build_system=cmake build_type=Release generator=make
+iibsalc             glew@2.2.0%gcc ~ipo build_system=cmake build_type=Release generator=make patches=7992e52
+naokui6             glx@1.4%gcc  build_system=bundle
+cupfv5u             libice@1.1.2%gcc  build_system=autotools
+u5abgs7             libxft@2.3.8%gcc  build_system=autotools
+ljrfxxe             libxpm@3.5.17%gcc  build_system=autotools
+iikd6ml             mesa@23.3.6%gcc +glx+llvm+opengl~opengles+osmesa~strip build_system=meson buildtype=release default_library=shared
+zkkq4rq                 flex@2.6.3%gcc +lex~nls build_system=autotools
+jp67725                 glproto@1.4.17%gcc  build_system=autotools
+7ir6p2r                 libunwind@1.8.1%gcc ~block_signals~conservative_checks~cxx_exceptions~debug~debug_frame+docs~pic+tests+weak_backtrace~xz~zlib build_system=autotools components=none libs=shared,static
+4db6htj                 libxt@1.3.1%gcc  build_system=autotools
+ytsfbwx                 llvm@17.0.6%gcc +clang~cuda~flang+gold~ipo+libomptarget~libomptarget_debug~link_llvm_dylib+lld+lldb+llvm_dylib+lua~mlir+polly~python~split_dwarf~z3~zstd build_system=cmake build_type=Release compiler-rt=runtime generator=ninja libcxx=runtime libunwind=runtime openmp=runtime shlib_symbol_version=none targets=all version_suffix=none
+qqsju5k                     binutils@2.43.1%gcc ~debuginfod~gas+gold~gprofng+headers~interwork+ld~libiberty~lto~nls~pgo+plugins build_system=autotools compress_debug_sections=zlib libs=shared,static
+aloyucg                     lua@5.3.6%gcc +shared build_system=makefile fetcher=curl
+hqbpdqt                         unzip@6.0%gcc  build_system=makefile patches=881d2ed,f6f6236
+hf65i3c                     perl-data-dumper@2.183%gcc  build_system=perl
+fxiiwon                 py-mako@1.2.4%gcc  build_system=python_pip
+e6wigbr                     py-markupsafe@2.1.3%gcc  build_system=python_pip
+ydhw536                 xrandr@1.5.3%gcc  build_system=autotools
+f3bkxoz                     libxrandr@1.5.4%gcc  build_system=autotools
+q5ytnce                     randrproto@1.5.0%gcc  build_system=autotools
+afzql4e             mesa-glu@9.0.2%gcc  build_system=autotools patches=3d03e55
+vykeimn             nlohmann-json@3.11.3%gcc ~ipo+multiple_headers build_system=cmake build_type=Release generator=make
+ojebsh3             pcre@8.45%gcc ~jit+multibyte+pic+shared+static+utf build_system=autotools
+cz55ozc             protobuf@3.28.2%gcc ~ipo+shared build_system=cmake build_type=Release cxxstd=14 generator=make
+hgm6efd                 abseil-cpp@20240722.0%gcc ~ipo+shared build_system=cmake build_type=Release cxxstd=14 generator=make
+gjnoxu6             unuran@1.8.1%gcc ~gsl+rngstreams+shared build_system=autotools
+b6ti4hx                 rngstreams@1.0.1%gcc  build_system=autotools
+zshygmo             vdt@0.4.4%gcc ~ipo~preload build_system=cmake build_type=Release generator=make
+ta4qmra             xextproto@7.3.0%gcc  build_system=autotools
+n47nt3t             xproto@7.0.31%gcc  build_system=autotools
+f5kw4fe             xxhash@0.8.3%gcc  build_system=makefile
+z54v4i4         sqlite@3.40.1%gcc +column_metadata+dynamic_extensions+fts~functions+rtree build_system=autotools
+r5amwd7         xrootd@5.5.5%gcc ~client_only+davix+http~ipo~krb5~python+readline~scitokens-cpp build_system=cmake build_type=Release cxxstd=14 generator=make patches=0d03eed,3596f45
+ppawjwm             json-c@0.18%gcc ~ipo build_system=cmake build_type=Release generator=make
+iu7rcna     artdaq@v4_01_00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+uau636n         gmake@4.4.1%gcc ~guile build_system=generic
+chlgitu     artdaq-core@v4_01_00%gcc ~doc~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+nu2xama     artdaq-daqinterface@v4_00_00%gcc ~ipo build_system=cmake build_type=Release generator=make
+ilmpxa5     artdaq-database@v2_00_00%gcc +builtin_fhicl~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+6sd43of         curl@8.11.1%gcc ~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs=shared,static tls=openssl
+7pg4cqj             nghttp2@1.64.0%gcc  build_system=autotools
+hsqxqbd     artdaq-epics-plugin@v2_00_00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+ygyd3oy     artdaq-mfextensions@v2_00_00%gcc +curl~ipo+kafka build_system=cmake build_type=Release cxxstd=20 generator=make
+xilfbhn     artdaq-utilities@v2_00_00%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
+od2x65g     epics-base@7.0.6.1%gcc  build_system=makefile
+4xhrko4         perl@5.40.0%gcc +cpanm+opcode+open+shared+threads build_system=generic
+gcpg3p2             berkeley-db@18.1.40%gcc +cxx~docs+stl build_system=autotools patches=26090f4,b231fcc
+t7ouo4k         readline@8.2%gcc  build_system=autotools patches=1ea4349,24f587b,3d9885e,5911a5b,622ba38,6c8adf8,758e2ec,79572ee,a177edc,bbf97f1,c7b45ff,e0013d9,e065038
+gvqla43     gcc-runtime@13.1.0%gcc  build_system=generic
+mfjm4x3     glibc@2.34%gcc  build_system=autotools
+q4jytq4     librdkafka@2.8.0%gcc  build_system=autotools
+mvvbsow         lz4@1.10.0%gcc +pic build_system=makefile libs=shared,static
+uxuhpv7         openssl@3.4.0%gcc ~docs+shared build_system=generic certs=mozilla
+njvenze             ca-certificates-mozilla@2024-12-31%gcc  build_system=generic
+oswrerx         zlib@1.3.1%gcc +optimize+pic+shared build_system=makefile
+hv6hea2         zstd@1.5.6%gcc +programs build_system=makefile compression=none libs=shared,static
+ybd6mtk     qt@5.15.15%gcc ~dbus~debug~doc~examples~framework~gtk+gui~location~opengl~phonon+shared+sql+ssl+tools~webkit build_system=generic patches=2081e9c,51aeba5,75bcb42,78c70fb,7f34d48,84b0991,9378afd
+yl5hq6e         double-conversion@3.3.0%gcc ~ipo build_system=cmake build_type=Release generator=make
+gwtdazz         fontconfig@2.15.0%gcc ~pic build_system=autotools
+vr3igai             font-util@1.4.1%gcc  build_system=autotools fonts=encodings,font-adobe-100dpi,font-adobe-75dpi,font-adobe-utopia-100dpi,font-adobe-utopia-75dpi,font-adobe-utopia-type1,font-alias,font-arabic-misc,font-bh-100dpi,font-bh-75dpi,font-bh-lucidatypewriter-100dpi,font-bh-lucidatypewriter-75dpi,font-bh-type1,font-bitstream-100dpi,font-bitstream-75dpi,font-bitstream-speedo,font-bitstream-type1,font-cronyx-cyrillic,font-cursor-misc,font-daewoo-misc,font-dec-misc,font-ibm-type1,font-isas-misc,font-jis-misc,font-micro-misc,font-misc-cyrillic,font-misc-ethiopic,font-misc-meltho,font-misc-misc,font-mutt-misc,font-schumacher-misc,font-screen-cyrillic,font-sun-misc,font-winitzki-cyrillic,font-xfree86-type1
+4mzv66y                 bdftopcf@1.1.1%gcc  build_system=autotools
+jfqeegc                     fontsproto@2.1.3%gcc  build_system=autotools
+ww5le4e                     libxfont@1.5.4%gcc  build_system=autotools
+2g3ppqq                 mkfontdir@1.0.7%gcc  build_system=autotools
+rlrg6f3                 mkfontscale@1.2.3%gcc  build_system=autotools
+cwrh4ha                     libfontenc@1.1.8%gcc  build_system=autotools
+ots5hqm             gperf@3.1%gcc  build_system=autotools patches=3dd36db
+zvd7tjp         freetype@2.13.2%gcc +pic+shared build_system=autotools
+l5wfdbh         glib@2.82.2%gcc ~libmount~strip build_system=meson buildtype=release default_library=shared tracing=none
+wgui433             elfutils@0.192%gcc ~debuginfod+exeprefix+nls build_system=autotools
+tvcj66d             meson@1.5.1%gcc  build_system=python_pip patches=0f0b1bd
+yzvkobe         harfbuzz@10.2.0%gcc ~graphite2~strip build_system=meson buildtype=release default_library=shared
+i5wzx5q             cairo@1.18.2%gcc ~X~dwrite+fc+ft+gobject+pdf+png~quartz~spectre~strip+svg~symbol-lookup~tee+zlib build_system=meson buildtype=release default_library=shared
+lknje6j                 lzo@2.10%gcc  build_system=autotools libs=shared,static
+uw4o2yz                 pixman@0.44.0%gcc +shared~strip build_system=meson buildtype=release default_library=shared
+hbyspo2             gobject-introspection@1.78.1%gcc ~strip build_system=meson buildtype=release default_library=shared
+k3l6e35         icu4c@74.2%gcc  build_system=autotools cxxstd=11
+3s6yian             autoconf@2.72%gcc  build_system=autotools
+eygakjz             automake@1.16.5%gcc  build_system=autotools
+ntvfhtd             libtool@2.4.7%gcc  build_system=autotools
+nf3rlqo                 findutils@4.10.0%gcc  build_system=autotools patches=440b954
+borxyta         libjpeg-turbo@3.0.3%gcc ~ipo~jpeg8~partial_decoder+pic build_system=cmake build_type=Release generator=make libs=shared,static
+tm4krhy             nasm@2.16.03%gcc  build_system=autotools
+lyarg2f         libmng@2.0.3%gcc ~ipo build_system=cmake build_type=Release generator=make
+gj6vo65             lcms@2.16%gcc  build_system=autotools
+y7uxxdv         libpng@1.6.39%gcc ~ipo~pic build_system=cmake build_type=Release generator=make libs=shared,static
+35qnbcu         libsm@1.2.5%gcc  build_system=autotools
+x5vvnxg             util-macros@1.20.1%gcc  build_system=autotools
+npnqtn5             xtrans@1.5.2%gcc  build_system=autotools
+hmvq4ou         libtiff@4.7.0%gcc +ccitt~ipo~jbig+jpeg~jpeg12~lerc~libdeflate+logluv~lzma+lzw+next~old-jpeg~opengl+packbits~pic~pixarlog+shared+thunder~webp+zlib~zstd build_system=cmake build_type=Release generator=make
+oogksy3         libx11@1.8.10%gcc  build_system=autotools
+lj3pm2b             inputproto@2.3.2%gcc  build_system=autotools
+dxuprot             kbproto@1.0.7%gcc  build_system=autotools
+pchn44m         libxcb@1.17.0%gcc  build_system=autotools
+dqdkh23             libpthread-stubs@0.5%gcc  build_system=autotools
+4rrf5hf             libxau@1.0.12%gcc  build_system=autotools
+4jkmyhz             libxdmcp@1.1.5%gcc  build_system=autotools
+r7ld2as             xcb-proto@1.17.0%gcc  build_system=autotools
+oebwz7w         libxext@1.3.6%gcc  build_system=autotools
+q7jzwok         libxkbcommon@1.7.0%gcc ~strip~wayland build_system=meson buildtype=release default_library=shared
+fyso7rt             bison@3.8.2%gcc ~color build_system=autotools
+6gatv6p             xkeyboard-config@2.34%gcc  build_system=autotools
+thuvpcm                 intltool@0.51.0%gcc  build_system=autotools patches=ca9d656
+2rjbz4n                     perl-xml-parser@2.47%gcc  build_system=perl
+gtajhgg                         perl-libwww-perl@6.68%gcc  build_system=perl
+4ydwk7w                             perl-clone@0.46%gcc  build_system=perl
+2kelthl                                 perl-b-cow@0.007%gcc  build_system=perl
+xxoua63                             perl-digest-md5@2.58%gcc  build_system=perl
+rhah5pm                             perl-encode-locale@1.05%gcc  build_system=perl
+senesmu                             perl-extutils-makemaker@7.70%gcc  build_system=perl
+4jyriqe                             perl-file-listing@6.16%gcc  build_system=perl
+7gnjlap                             perl-html-parser@3.78%gcc  build_system=perl
+4cpa2zi                                 perl-html-tagset@3.24%gcc  build_system=perl
+k2c7idj                             perl-http-cookies@6.11%gcc  build_system=perl
+2y6r3q7                             perl-http-daemon@6.16%gcc  build_system=perl
+kueb3jk                                 perl-http-tiny@0.088%gcc  build_system=perl
+3wdrrek                                     perl-http-cookiejar@0.014%gcc  build_system=perl
+tgiwszt                                         perl-mozilla-publicsuffix@1.0.6%gcc  build_system=perl
+zyvsrqt                                         perl-test-deep@1.204%gcc  build_system=perl
+gkpsdye                                         perl-test-requires@0.11%gcc  build_system=perl
+tf7tcf2                                     perl-io-socket-ssl@2.089%gcc  build_system=perl
+o2tr2ap                                     perl-mozilla-ca@20211001%gcc  build_system=perl
+ir3c2ap                                     perl-net-ssleay@1.94%gcc  build_system=perl
+c6ty4pv                                 perl-io-socket-ip@0.41%gcc  build_system=perl
+qdh6h4w                                     perl-module-build@0.42.34%gcc  build_system=perl
+7lfuqny                                         perl-cpan-meta-yaml@0.018%gcc  build_system=perl
+hq3xgzu                                         perl-extutils-cbuilder@0.28.2.36%gcc  build_system=perl
+6dg2haj                                         perl-extutils-manifest@1.73%gcc  build_system=perl
+2y62uz4                                         perl-perl-ostype@1.010%gcc  build_system=perl
+lxux76i                                         perl-text-abbrev@1.02%gcc  build_system=perl
+mvmic4r                                 perl-module-build-tiny@0.048%gcc  build_system=perl
+tjyqpwk                                     perl-extutils-config@0.010%gcc  build_system=perl
+jjq5twm                                     perl-extutils-helpers@0.026%gcc  build_system=perl
+f4auxci                                     perl-extutils-installpaths@0.013%gcc  build_system=perl
+ah5w6ir                                     perl-extutils-parsexs@3.44%gcc  build_system=perl
+lagaj6a                                     perl-test-harness@3.44%gcc  build_system=perl
+e4baevo                                 perl-module-metadata@1.000.037%gcc  build_system=perl
+v77dthc                             perl-http-date@6.06%gcc  build_system=perl
+iws65nt                                 perl-time-local@1.30%gcc  build_system=perl
+eskwfts                                 perl-timedate@2.33%gcc  build_system=perl
+ti7ae6e                             perl-http-message@6.45%gcc  build_system=perl
+ccb35be                                 perl-compress-raw-zlib@2.212%gcc  build_system=perl
+g7qvvrc                                 perl-io-compress@2.204%gcc  build_system=perl
+ygibgpz                                     perl-compress-raw-bzip2@2.212%gcc  build_system=perl
+wc5g4su                                 perl-io-compress-brotli@0.004_002%gcc  build_system=perl
+5sbrwke                                     perl-file-slurper@0.014%gcc  build_system=perl
+dwj5q77                                         perl-perlio-utf8-strict@0.010%gcc  build_system=perl
+exnfinl                                             perl-test-exception@0.43%gcc  build_system=perl
+3lgcjto                                                 perl-sub-uplevel@0.28.00%gcc  build_system=perl
+tin6ojl                                         perl-test-warnings@0.033%gcc  build_system=perl
+ogvvqpo                                     perl-time-hires@1.97.64_02%gcc  build_system=perl
+fdry45b                                 perl-io-html@1.004%gcc  build_system=perl
+cnzwonh                             perl-http-negotiate@6.01%gcc  build_system=perl
+3ypjdrp                             perl-lwp-mediatypes@6.04%gcc  build_system=perl
+fxupqfb                             perl-net-http@6.23%gcc  build_system=perl
+bhvaubr                             perl-scalar-list-utils@1.63%gcc  build_system=perl
+eyyhvvg                             perl-test-fatal@0.017%gcc  build_system=perl
+6u7rf7m                             perl-test-leaktrace@0.17%gcc  build_system=perl
+m7cigf2                             perl-test-needs@0.002010%gcc  build_system=perl
+oczbs7v                             perl-test-requiresinternet@0.05%gcc  build_system=perl
+abhbtcs                             perl-try-tiny@0.31%gcc  build_system=perl
+tu7juvh                             perl-uri@5.12%gcc  build_system=perl
+vucw7du                             perl-www-robotrules@6.02%gcc  build_system=perl
+dex2kpx                 libxslt@1.1.42%gcc +crypto~python build_system=autotools
+jf4tgqo                     libgcrypt@1.11.0%gcc  build_system=autotools patches=1ecb4ee,4e308ba
+4v5syu7                         libgpg-error@1.51%gcc  build_system=autotools
+qlptfz5                             gawk@5.3.1%gcc ~nls build_system=autotools
+uep6zhw                                 gmp@6.3.0%gcc +cxx build_system=autotools libs=shared,static
+tnx7iaa                                 mpfr@4.2.1%gcc  build_system=autotools libs=shared,static
+hzzvwee                                     autoconf-archive@2023.02.20%gcc  build_system=autotools
+gzrc7me                                     texinfo@7.1%gcc  build_system=autotools
+frrspcc         libxrender@0.9.11%gcc  build_system=autotools
+h4jgpf5             renderproto@0.11.1%gcc  build_system=autotools
+h2pknkc         pcre2@10.44%gcc ~jit+multibyte+pic build_system=autotools
+7ts6z5t         pkg-config@0.29.2%gcc +internal_glib build_system=autotools
+xx5xuqu         xcb-util-image@0.4.1%gcc  build_system=autotools
+z7o32xa             xcb-util@0.4.1%gcc  build_system=autotools
+ah7diqd         xcb-util-keysyms@0.4.1%gcc  build_system=autotools
+6wdfpm5         xcb-util-renderutil@0.3.10%gcc  build_system=autotools
+6o3ttfk         xcb-util-wm@0.4.2%gcc  build_system=autotools
+veqio75             m4@1.4.19%gcc +sigsegv build_system=autotools patches=9dc5fbd,bfdffa7
+satmo7y                 libsigsegv@2.14%gcc  build_system=autotools
+xjk5rdw         zlib-ng@2.2.3%gcc +compat+new_strategies+opt+pic+shared build_system=autotools
+7qidliy     swig@4.1.1%gcc  build_system=autotools
+dtj7vsi     trace@v3_18_00%gcc ~ipo~kmod+mf build_system=cmake build_type=Release generator=make
+uzm6f4y     xmlrpc-c@1.51.06%gcc +curl build_system=autotools
+
