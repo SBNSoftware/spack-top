@@ -66,7 +66,7 @@ setup_spack_environment() {
     cpu_count=$(get_cpu_count)
     export SPACK_J=${SPACK_J:-"${cpu_count}"}
     export SPACK_ARCH="linux-${SPACK_OS}-x86_64_${SPACK_MICRO_ARCH}"
-    export SPACK_INSTALL_OPTS=" -y -j${SPACK_J} --deprecated --fresh --no-cache --source"
+    export SPACK_INSTALL_OPTS=" -y -j${SPACK_J} --deprecated --no-cache --source"
     
     log_debug "Spack environment configured:"
     log_debug "  SPACK_ARCH: ${SPACK_ARCH}"

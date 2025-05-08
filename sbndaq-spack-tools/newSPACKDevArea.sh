@@ -124,6 +124,7 @@ parse_arguments() {
     DEFAULT_VERSION=${DEFAULT_VERSION:-""}
     SPACK_USE_USER_CONFIG=${SPACK_USE_USER_CONFIG:-true}
     RUN_BUILD=${RUN_BUILD:-true}
+    SPACK_MICRO_ARCH=${SPACK_MICRO_ARCH:-"v2"}
     
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -176,7 +177,7 @@ parse_arguments() {
     done
     
     # Export arguments for use in other functions
-    export NON_INTERACTIVE DEVNAME DEFAULT_VERSION SPACK_USE_USER_CONFIG RUN_BUILD ALLOW_USERS ALLOW_HOSTS
+    export NON_INTERACTIVE DEVNAME DEFAULT_VERSION SPACK_USE_USER_CONFIG RUN_BUILD ALLOW_USERS ALLOW_HOSTS SPACK_MICRO_ARCH
 }
 
 
@@ -210,7 +211,7 @@ setup_development_environment() {
     local qualifier="$4"
     local gcc_version="$5"
     local cxxstd="${6:-}"
-    local arch="${7:-${SPACK_ARCH}}"
+    local arch="${7:-${SPACK_TARGET_PLATFORM}}"
     local checkout_packages="${8:-${DAQ_SUITE_CHECKOUT_PACKAGES}}"
     
     # Fall back to environment variables if not provided
@@ -311,7 +312,7 @@ build_packages() {
     local build_threads="${7:-${BUILD_THREADS:-}}"
     local debug_build="${8:-${DEBUG_BUILD:-false}}"
     local checkout_packages="${9:-${DAQ_SUITE_CHECKOUT_PACKAGES}}"
-    local arch="${SPACK_ARCH}"
+    local arch="${SPACK_TARGET_PLATFORM}"
     
     # Validate required parameters
     if [[ -z "$dir_name" || -z "$suite_name" || -z "$version" ]]; then
@@ -347,7 +348,7 @@ build_packages() {
         cxxstd_suffix="-${cxxstd}"
     fi
 
-    local spec_file="${dir_name}/${suite_name}-${version}-s${qualifier#s}-gcc${gcc_version%%.*}${cxxstd_suffix}-${SPACK_OS}.pkgs.txt"
+    local spec_file="${dir_name}/${suite_name}-${version}-s${qualifier#s}-gcc${gcc_version%%.*}${cxxstd_suffix}-${SPACK_DISTRO_NAME}.pkgs.txt"
 
     log_command "spack spec ${suite_name}@${version} s=${qualifier#s} ${cxxstd_param} arch=${arch} %gcc@${gcc_version} > ${spec_file}"
 
@@ -534,7 +535,7 @@ main() {
                 exit 1
             fi
             
-            if ! setup_development_environment "${dir_name}" "${DAQ_SUITE_NAME}" "${version}" "${QUALIFIER}" "${GCC_VERSION}" "${CXXSTD}" "${SPACK_ARCH}" "${DAQ_SUITE_CHECKOUT_PACKAGES}"; then
+            if ! setup_development_environment "${dir_name}" "${DAQ_SUITE_NAME}" "${version}" "${QUALIFIER}" "${GCC_VERSION}" "${CXXSTD}" "${SPACK_TARGET_PLATFORM}" "${DAQ_SUITE_CHECKOUT_PACKAGES}"; then
                 log_error "Failed to set up development environment"
                 exit 1
             fi
@@ -543,7 +544,7 @@ main() {
             log_info "Using existing directory: ${dir_name}"
         fi
     else
-        if ! setup_development_environment "${dir_name}" "${DAQ_SUITE_NAME}" "${version}" "${QUALIFIER}" "${GCC_VERSION}" "${CXXSTD}" "${SPACK_ARCH}" "${DAQ_SUITE_CHECKOUT_PACKAGES}"; then
+        if ! setup_development_environment "${dir_name}" "${DAQ_SUITE_NAME}" "${version}" "${QUALIFIER}" "${GCC_VERSION}" "${CXXSTD}" "${SPACK_TARGET_PLATFORM}" "${DAQ_SUITE_CHECKOUT_PACKAGES}"; then
             log_error "Failed to set up development environment"
             exit 1
         fi

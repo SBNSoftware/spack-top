@@ -366,7 +366,7 @@ setup_development_packages() {
     # Clean up qualifier
     s_qualifier=$(echo "${s_qualifier}" | sed 's/^s=\|^s//')
     
-    local spec_output_path=${package_suite_name}-${version}-s${s_qualifier//=/}-gcc${compiler_version%%.*}-${cpp_standard}-${SPACK_OS}.env.txt
+    local spec_output_path=${package_suite_name}-${version}-s${s_qualifier//=/}-gcc${compiler_version%%.*}-${cpp_standard}-${SPACK_DISTRO_NAME}.env.txt
     local cpp_standard_param=""
     
     if [[ -n "${cpp_standard}" ]]; then
