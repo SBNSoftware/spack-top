@@ -103,8 +103,10 @@ generate_package_hashes() {
         log_warn "Failed to unload all packages - proceeding anyway"
     }
 
+    local spack_cmd="spack find -lpfv ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
+    log_command "${spack_cmd}"
     local package_count
-    if ! package_count=$(spack find -lpfv "${package_name}@${version}" "${qualifiers}" "arch=${arch}" "%gcc@${gcc_version}" | grep -Eo '/daq/software/.*$' | wc -l); then
+    if ! package_count=$(eval ${spack_cmd} 2>/dev/null | grep -Eo '/daq/software/.*$' | wc -l); then
         log_error "Cannot determine package count - check Spack installation"
         return 1
     fi
@@ -112,14 +114,17 @@ generate_package_hashes() {
     if [[ $package_count -gt 1 ]]; then
         log_debug "Multiple package instances found - selecting latest"
 
+        local spack_cmd="spack find -lpfv ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
+        log_command "${spack_cmd}"
         local package_paths
-        if ! package_paths=$(spack find -lpfv "${package_name}@${version}" "${qualifiers}" "arch=${arch}" "%gcc@${gcc_version}" | grep -Eo '/daq/software/.*$'); then
+        if ! package_paths=$(eval ${spack_cmd} 2>/dev/null | grep -Eo '/daq/software/.*$'); then
             log_error "Cannot list package paths - check Spack database"
             return 1
         fi
-
+        local local_cmd="/usr/bin/ls -ldtr $package_paths 2>/dev/null | tail -1 | awk '{print \$NF}'"
+        log_command "${local_cmd}"
         local latest_package
-        if ! latest_package=$(/bin/ls -ldtr $package_paths 2>/dev/null | tail -1 | awk '{print $NF}'); then
+        if ! latest_package=$(eval "${local_cmd}" 2>/dev/null); then
             log_error "Cannot determine latest package - check file system permissions"
             return 1
         fi
@@ -130,21 +135,25 @@ generate_package_hashes() {
             return 1
         fi
 
-        log_command "spack load \"${package_name}@${version}\" \"/${hash}\""
-        if ! spack load "${package_name}@${version}" "/${hash}"; then
+        local spack_cmd="spack load ${package_name}@${version} /${hash}"
+        log_command "${spack_cmd}"
+
+        if ! eval "${spack_cmd}" 2>/dev/null; then
             log_error "Cannot load package: ${package_name}@${version}/${hash}"
-            return 1
+            return 1    
         fi
     else
-        log_command "spack load \"${package_name}@${version}\" \"${qualifiers}\" \"arch=${arch}\" \"%gcc@${gcc_version}\""
-        if ! spack load "${package_name}@${version}" "${qualifiers}" "arch=${arch}" "%gcc@${gcc_version}"; then
+        local spack_cmd="spack load ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
+        log_command "${spack_cmd}"
+        if ! eval "${spack_cmd}" 2>/dev/null; then
             log_error "Cannot load package: ${package_name}@${version} ${qualifiers}"
             return 1
         fi
     fi
 
-    log_command "spack find -ldfv --loaded > ${hash_file}"
-    if ! spack find -ldfv --loaded > "${hash_file}"; then
+    local spack_cmd="spack find -ldfv --loaded > ${hash_file}"
+    log_command "${spack_cmd}"
+    if ! eval "${spack_cmd}" 2>/dev/null; then
         log_error "Cannot save loaded package info - check file system permissions"
         return 1
     fi
@@ -181,13 +190,12 @@ push_to_buildcache() {
         return 1
     fi
 
-    local e_version
-    e_version=$(get_qualifier_e_version "$gcc_version")
+    local e_version=$(get_qualifier_e_version "$gcc_version")
 
     local hash_dir="${spack_dir}/${spack_version}/hashes"
         
     local hash_file=$(format_path_name "${package_name}-${version}" "${gcc_version}" "${qualifiers}" "${arch}" "-").hashes.txt
-    local mirror_path="${mirror_base}/s${qualifier}-${e_version}/"
+    local mirror_path="${mirror_base}/${qualifier}-${e_version}/"
 
     log_info "Pushing ${package_name}@${version} ${qualifiers} to buildcache at ${mirror_path}"
  
@@ -232,10 +240,11 @@ push_to_buildcache() {
             break
         fi
 
-        log_command "spack buildcache push --only package \"${mirror_path}\" \"${hash}\""
+        local spack_cmd="spack buildcache push --only package ${mirror_path} ${hash}"
+        log_command "${spack_cmd}"
 
         local output
-        output=$(spack buildcache push --only package "${mirror_path}" "${hash}" 2>&1)
+        output=$(eval "${spack_cmd}" 2>&1)
         local push_status=$?
 
         if [[ $push_status -eq 0 ]]; then
@@ -279,8 +288,9 @@ update_buildcache_index() {
 
     log_info "Updating buildcache index for ${mirror_path}"
 
-    log_command "spack buildcache update-index ${mirror_path}"
-    if ! spack buildcache update-index "${mirror_path}"; then
+    local spack_cmd="spack buildcache update-index ${mirror_path}"
+    log_command "${spack_cmd}"
+    if ! eval "${spack_cmd}" 2>/dev/null; then
         log_error "Failed to update buildcache index"
         return 1
     fi
