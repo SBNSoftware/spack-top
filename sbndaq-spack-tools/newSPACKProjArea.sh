@@ -26,10 +26,10 @@ main() {
         exit 0
     fi
 
-    setup_daq_development_area "suite" "${SPACK_ENVFILE}" "$@"
+    setup_daq_development_area "proj" "${SPACK_ENVFILE}" "$@"
     
     return $?
 }
 
 # Run the main function
-main "$@"
+main "$@" 
