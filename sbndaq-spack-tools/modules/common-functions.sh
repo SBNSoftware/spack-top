@@ -85,6 +85,18 @@ get_qualifier_e_version() {
     esac
 }
 
+get_s_qualifier() {
+    local qualifiers="$1"
+    local s_qualifier=$(echo "${qualifiers}" | grep -oP 's=\d+' | cut -d'=' -f2)
+    echo "${s_qualifier}"
+}
+
+get_cxxstd_qualifier() {
+    local qualifiers="$1"
+    local cxxstd_qualifier=$(echo "${qualifiers}" | grep -oP 'cxxstd=\d+' | cut -d'=' -f2)
+    echo "${cxxstd_qualifier}"
+}
+
 get_version() {
     local package="$1"
     local quals="$2"

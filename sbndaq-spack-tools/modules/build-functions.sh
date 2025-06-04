@@ -125,14 +125,16 @@ build_package_version() {
         fi
 
         local e_version=$(get_qualifier_e_version "${gcc_version}")
-        local mirror_path=$(format_path_name "${mirror_base}/s${qualifiers#s}-${e_version}" "${gcc_version}" "${qualifiers}" "${arch}")
+        local s_qualifier=$(get_s_qualifier "${qualifiers}")
+        local mirror_path="${mirror_base}/${s_qualifier}-${e_version}/"
+        log_debug "Pushing to buildcache at: ${mirror_path}"
 
         if ! update_buildcache_index "${spack_dir}" "${spack_version}" "${mirror_path}"; then
             log_error "Failed to update buildcache index for ${package_name}@${version} ${qualifiers}"
             return 1
         fi
 
-        log_success "Successfully built ${package_name  }@${version} ${qualifiers} with GCC ${gcc_version}"
+        log_success "Successfully built ${package_name}@${version} ${qualifiers} with GCC ${gcc_version}"
     } 2>&1 | tee -a "${build_log}"
 
     local result=${PIPESTATUS[0]}

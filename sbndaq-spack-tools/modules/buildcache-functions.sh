@@ -50,6 +50,8 @@ generate_package_spec() {
         return 1
     fi
 
+    log_debug "Working directory: $(pwd)"
+
     local spack_cmd="spack spec ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
     log_command "${spack_cmd}"
     if ! eval "${spack_cmd}" > "${spec_file}"; then
@@ -57,7 +59,21 @@ generate_package_spec() {
         return 1
     fi
 
-    log_success "Spec saved to: ${spec_file}"
+    local packages_to_build
+    if ! packages_to_build=$(cat "${spec_file}" | grep -v '\[[\+e\^]\]'); then
+        log_error "Cannot determine packages to build, check the spec file: ${spec_file}"
+        return 1
+    fi
+    if [[ -z "${packages_to_build}" ]]; then
+        log_info "No packages to build, since they were already built, check the spec file: ${spec_file}"        
+    else
+        log_debug "Found ${#packages_to_build[@]} packages to build"    
+        for package in "${packages_to_build[@]}"; do
+            log_debug "Package to build: ${package}"
+        done
+    fi
+
+    log_success "Spec saved to: ${spec_file}" 
     return 0
 }
 
@@ -121,16 +137,19 @@ generate_package_hashes() {
             log_error "Cannot list package paths - check Spack database"
             return 1
         fi
-        local local_cmd="/usr/bin/ls -ldtr $package_paths 2>/dev/null | tail -1 | awk '{print \$NF}'"
-        log_command "${local_cmd}"
+
+        local local_cmd="/usr/bin/ls -ldtr ${package_paths} 2>/dev/null | tail -1 | awk '{print \$NF}'"
+        #log_command "${local_cmd}"
         local latest_package
-        if ! latest_package=$(eval "${local_cmd}" 2>/dev/null); then
+        if ! latest_package=$(eval ${local_cmd} 2>/dev/null); then
+            log_debug "Package paths: ${package_paths}"
             log_error "Cannot determine latest package - check file system permissions"
             return 1
         fi
 
         local hash
         if ! hash=$(basename "$latest_package" | grep -Eo '[^-]+$'); then
+            log_debug "Latest package: ${latest_package}"
             log_error "Cannot extract hash from package path - unexpected path format"
             return 1
         fi
@@ -151,6 +170,7 @@ generate_package_hashes() {
         fi
     fi
 
+    log_debug "Working directory: $(pwd)"
     local spack_cmd="spack find -ldfv --loaded > ${hash_file}"
     log_command "${spack_cmd}"
     if ! eval "${spack_cmd}" 2>/dev/null; then
@@ -184,18 +204,14 @@ push_to_buildcache() {
     local spack_version="$7"
     local mirror_base="$8"
     
-    
-    if [[ -z "$version" || -z "$qualifiers" || -z "$package_name" || -z "$gcc_version" ]]; then
-        log_error "Missing required parameters for buildcache push"
-        return 1
-    fi
 
     local e_version=$(get_qualifier_e_version "$gcc_version")
+    local s_qualifier=$(get_s_qualifier "${qualifiers}")
 
     local hash_dir="${spack_dir}/${spack_version}/hashes"
         
     local hash_file=$(format_path_name "${package_name}-${version}" "${gcc_version}" "${qualifiers}" "${arch}" "-").hashes.txt
-    local mirror_path="${mirror_base}/${qualifier}-${e_version}/"
+    local mirror_path="${mirror_base}/${s_qualifier}-${e_version}/"
 
     log_info "Pushing ${package_name}@${version} ${qualifiers} to buildcache at ${mirror_path}"
  
