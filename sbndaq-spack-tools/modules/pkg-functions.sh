@@ -326,7 +326,7 @@ build_packages() {
     local spack_env_top_dir="$9"
 
     log_info "Building packages for ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
-    log_warn "This step may take several minutes depending on NFS system speed"
+    log_warn "This step may take several minutes or even tens of minutes depending on NFS system speed"
     log_debug "Working directory: $(pwd)"
     
     # Determine number of threads to use

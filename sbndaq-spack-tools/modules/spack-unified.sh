@@ -146,10 +146,22 @@ setup_daq_development_area() {
     echo
     log_info "Selected ${DAQ_PKG_NAME} version: ${version}"
     
-    # Create directory with date, developer name, and version information
+    if [[ ! "${MY_SPACK_PROJECT}" =~ ^DAQ_[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-zA-Z0-9_]+_[vV0-9]+$ ]]; then
+        log_error "MY_SPACK_PROJECT is not set correctly"
+        exit 1
+    else
+        if [[ ! -d "${SPACK_DAQ_AREAS}/${MY_SPACK_PROJECT}" ]]; then
+            log_error "MY_SPACK_PROJECT directory does not exist: ${SPACK_DAQ_AREAS}/${MY_SPACK_PROJECT}, please set MY_SPACK_PROJECT to a valid project name."
+            log_info "Example: export MY_SPACK_PROJECT=DAQ_2024-01-01_ALICE_MyProjectv1_00_00"
+            log_info "It is recommended to be using the ${SPACK_DAQ_AREAS} directory for your projects."
+            unset MY_SPACK_PROJECT
+            exit 1
+        fi
+    fi
+        
     local date_str
     date_str=$(date +%Y-%m-%d)
-    local spack_env_top_dir="DAQ_${date_str}_${DEVNAME}"
+    local spack_env_top_dir=${MY_SPACK_PROJECT:-"DAQ_${date_str}_${DEVNAME}"}
     
     # Add package name to directory for 'proj' type
     if [[ "${pkg_type}" == "proj" ]]; then
@@ -169,7 +181,9 @@ setup_daq_development_area() {
         log_error "Cannot access directory: ${SPACK_DAQ_AREAS}"
         exit 1
     fi
-
+    
+    local spack_env_dir=$(format_path_name "${SPACK_DAQ_AREAS}/${spack_env_top_dir}" "${GCC_VERSION}" "${QUALIFIERS}" "${SPACK_ARCH}")
+    
     # Handle existing directory case
     if [[ -d "${spack_env_top_dir}" ]]; then
         local delete_response
@@ -177,7 +191,7 @@ setup_daq_development_area() {
         
         if [[ ${delete_response,,} == "y" ]]; then
             log_info "Removing existing directory: ${spack_env_top_dir}"
-            log_warn "This step may take several minutes depending on NFS system speed"
+            log_warn "This step may take several minutes or even tens of minutes depending on NFS system speed"
             
             if ! rm -rf "${SPACK_DAQ_AREAS}/${spack_env_top_dir}"; then
                 log_error "Failed to remove directory: ${spack_env_top_dir}"
@@ -191,6 +205,22 @@ setup_daq_development_area() {
         else
             echo
             log_info "Using existing directory: ${spack_env_top_dir}"
+            if [[ ! -d "${spack_env_dir}" ]]; then
+                log_warn "It appears that the development environment has not been set up yet for this configuration: arch=${SPACK_ARCH} gcc=${GCC_VERSION} qualifiers=${QUALIFIERS}"
+                local response
+                response=$(read_with_timeout "Do you want to set up the development environment? [Y/n]: " "Y")
+                if [[ ${response,,} == "y" ]]; then
+                    if ! setup_development_environment  "${DAQ_PKG_NAME}" "${version}" "${GCC_VERSION}" "${QUALIFIERS}" "${SPACK_ARCH}" "${DAQ_PKG_CHECKOUT_PACKAGES}" "${spack_env_top_dir}"; then
+                        log_error "Failed to set up development environment"
+                        exit 1
+                    fi
+                else
+                    log_error "Exiting... Something is wrong with the development environment setup, try deleting the directory and re-running the script"
+                    exit 1  
+                fi
+            else
+                log_debug "Development environment already set up for this configuration: arch=${SPACK_ARCH} gcc=${GCC_VERSION} qualifiers=${QUALIFIERS}, continuing..."
+            fi
         fi
     else
         if ! setup_development_environment  "${DAQ_PKG_NAME}" "${version}" "${GCC_VERSION}" "${QUALIFIERS}" "${SPACK_ARCH}" "${DAQ_PKG_CHECKOUT_PACKAGES}" "${spack_env_top_dir}"; then
@@ -214,10 +244,7 @@ setup_daq_development_area() {
         export SPACK_USER_CONFIG_PATH="${PWD}/${spack_env_top_dir}/spack"
     fi
 
-    # Activate the Spack environment
-
-    local spack_env_dir=$(format_path_name "${SPACK_DAQ_AREAS}/${spack_env_top_dir}" "${GCC_VERSION}" "${QUALIFIERS}" "${SPACK_ARCH}")
-    
+    # Activate the Spack environment    
     log_command "spack env activate --prompt --dir ${spack_env_dir}"
     if ! spack env activate --prompt --dir "${spack_env_dir}"; then
         log_error "Cannot activate Spack environment: ${spack_env_dir}"
@@ -226,21 +253,21 @@ setup_daq_development_area() {
 
     # Handle environment concretization
     if [[ -f ${spack_env_dir}/spack.lock ]]; then
-        log_info "Regenerating view..."
-        log_command "spack env view regenerate"
+        log_info "We have a spack.lock file, regenerating view..."
+        log_command "spack env view regenerate, try deleting the ${spack_env_dir}/spack.lock file and re-running the script"
         
         if ! spack env view regenerate; then
-            log_error "Cannot regenerate Spack view"
+            log_error "Cannot regenerate Spack view, try deleting the ${spack_env_dir}/spack.lock file and re-running the script"
             spack env deactivate || true
             exit 1
         fi
     else
-        log_info "Concretizing environment..."
-        log_warn "This step may take several minutes depending on NFS system speed"
+        log_info "No spack.lock file, concretizing environment..."
+        log_warn "This step may take several minutes or even tens of minutes depending on NFS system speed"
         log_command "spack concretize --quiet --force"
         
         if ! spack concretize --quiet --force; then
-            log_error "Cannot concretize Spack environment"
+            log_error "Cannot concretize Spack environment, try deleting the ${spack_env_dir}/spack.lock file and re-running the script"
             spack env deactivate || true
             exit 1
         fi
