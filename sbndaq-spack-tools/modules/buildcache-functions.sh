@@ -67,7 +67,7 @@ generate_package_spec() {
 
     IFS=$'\n' read -rd '' -a packages_to_build <<< "${packages_to_build}"
 
-    if [[ -z "${packages_to_build}" ]]; then
+    if [[ -z "${packages_to_build:-}" ]]; then
         log_debug "All packages were already built, check the spec file: ${spec_file}"        
     else
         log_debug "Found ${#packages_to_build[@]} packages to build"    

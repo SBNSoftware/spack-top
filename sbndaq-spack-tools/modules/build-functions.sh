@@ -69,7 +69,7 @@ install_package() {
 
     IFS=$'\n' read -rd '' -a packages_to_build <<< "${packages_to_build}"
 
-    if [[ -z "${packages_to_build}" ]]; then
+    if [[ -z "${packages_to_build:-}" ]]; then
         log_info "All packages were already built, check the spec file: ${spec_file}"        
     else
         log_info "Found ${#packages_to_build[@]} packages to build"    
