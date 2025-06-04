@@ -51,7 +51,34 @@ install_package() {
     log_info "Installing ${package_name}@${version} ${qualifiers} with GCC ${gcc_version}"
     log_info "Installation log: ${log_file}"
 
-    local spack_cmd="spack install ${build_opts} ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
+    local spec_file=$(format_path_name "${package_name}-${version}" "${gcc_version}" "${qualifiers}" "${arch}" "-").spec.txt
+
+    local spack_cmd="spack spec ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
+    log_command "${spack_cmd}"
+    if ! eval "${spack_cmd}" > "${spec_file}"; then
+        log_error "Spec generation failed for ${package_name}@${version} ${qualifiers}"
+        return 1
+    fi
+
+    
+    local packages_to_build=""
+    if ! packages_to_build=$(cat "${spec_file}" | grep -v '\[[\+e\^]\]'); then
+        log_error "Cannot determine packages to build, check the spec file: ${spec_file}"
+        return 1
+    fi
+
+    IFS=$'\n' read -rd '' -a packages_to_build <<< "${packages_to_build}"
+
+    if [[ -z "${packages_to_build}" ]]; then
+        log_info "All packages were already built, check the spec file: ${spec_file}"        
+    else
+        log_info "Found ${#packages_to_build[@]} packages to build"    
+        for package in "${packages_to_build[@]}"; do
+            log_info "Package to build: ${package}"
+        done
+    fi
+
+    spack_cmd="spack install ${build_opts} ${package_name}@${version} ${qualifiers} arch=${arch} %gcc@${gcc_version}"
     
     log_command "${spack_cmd}"
     if ! eval "${spack_cmd}" > "${log_file}" 2>&1; then

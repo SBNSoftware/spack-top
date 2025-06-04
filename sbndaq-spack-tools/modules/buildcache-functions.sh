@@ -59,13 +59,16 @@ generate_package_spec() {
         return 1
     fi
 
-    local packages_to_build
+    local packages_to_build=""
     if ! packages_to_build=$(cat "${spec_file}" | grep -v '\[[\+e\^]\]'); then
         log_error "Cannot determine packages to build, check the spec file: ${spec_file}"
         return 1
     fi
+
+    IFS=$'\n' read -rd '' -a packages_to_build <<< "${packages_to_build}"
+
     if [[ -z "${packages_to_build}" ]]; then
-        log_info "No packages to build, since they were already built, check the spec file: ${spec_file}"        
+        log_debug "All packages were already built, check the spec file: ${spec_file}"        
     else
         log_debug "Found ${#packages_to_build[@]} packages to build"    
         for package in "${packages_to_build[@]}"; do
