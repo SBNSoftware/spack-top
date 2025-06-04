@@ -1,4 +1,117 @@
 [+]  sbndaq-suite@migration_artdaqv3_13_02%gcc@13.1.0~gdb+icarus+sbnd build_system=bundle cxxstd=17 s=131 arch=linux-almalinux9-x86_64_v2
+[+]      ^artdaq-runcontrol-gui@v1_03_06%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make patches=a38d9f3 arch=linux-almalinux9-x86_64_v2
+[+]          ^cetmodules@3.26.00%gcc@13.1.0~docs~ipo~versioned-docs build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
+[+]              ^perl@5.40.0%gcc@13.1.0+cpanm+opcode+open+shared+threads build_system=generic arch=linux-almalinux9-x86_64_v2
+[+]                  ^berkeley-db@18.1.40%gcc@13.1.0+cxx~docs+stl build_system=autotools patches=26090f4,b231fcc arch=linux-almalinux9-x86_64_v2
+[+]          ^cmake@3.27.9%gcc@13.1.0~doc+ncurses+ownlibs~qtgui build_system=generic build_type=Release patches=dbc3892 arch=linux-almalinux9-x86_64_v2
+[+]              ^curl@8.11.1%gcc@13.1.0~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs=shared,static tls=openssl arch=linux-almalinux9-x86_64_v2
+[+]                  ^nghttp2@1.64.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]          ^gmake@4.4.1%gcc@13.1.0~guile build_system=generic arch=linux-almalinux9-x86_64_v2
+[+]          ^qt@5.15.16%gcc@13.1.0~dbus~debug~doc~examples~framework~gtk+gui~location~opengl~phonon+shared+sql+ssl+tools~webkit build_system=generic patches=2081e9c,51aeba5,75bcb42,78c70fb,7f34d48,84b0991,9378afd arch=linux-almalinux9-x86_64_v2
+[+]              ^double-conversion@3.3.0%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
+[+]              ^glib@2.82.2%gcc@13.1.0~libmount~strip build_system=meson buildtype=release default_library=shared tracing=none arch=linux-almalinux9-x86_64_v2
+[+]                  ^elfutils@0.192%gcc@13.1.0~debuginfod+exeprefix+nls build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^python-venv@1.0%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
+[+]              ^harfbuzz@10.2.0%gcc@13.1.0~graphite2~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
+[+]                  ^cairo@1.18.2%gcc@13.1.0~X~dwrite+fc+ft+gobject+pdf+png~quartz~spectre~strip+svg~symbol-lookup~tee+zlib build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
+[+]                      ^lzo@2.10%gcc@13.1.0 build_system=autotools libs=shared,static arch=linux-almalinux9-x86_64_v2
+[+]                      ^pixman@0.44.0%gcc@13.1.0+shared~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
+[+]                  ^gobject-introspection@1.78.1%gcc@13.1.0~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
+[+]              ^icu4c@74.2%gcc@13.1.0 build_system=autotools cxxstd=11 arch=linux-almalinux9-x86_64_v2
+[+]                  ^autoconf@2.72%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^automake@1.16.5%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^libtool@2.4.7%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^libmng@2.0.3%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
+[+]                  ^lcms@2.16%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^libtiff@4.7.0%gcc@13.1.0+ccitt~ipo~jbig+jpeg~jpeg12~lerc~libdeflate+logluv~lzma+lzw+next~old-jpeg~opengl+packbits~pic~pixarlog+shared+thunder~webp+zlib~zstd build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
+[+]              ^libxcb@1.17.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^libpthread-stubs@0.5%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^libxau@1.0.12%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^libxdmcp@1.1.5%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^xcb-proto@1.17.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^libxkbcommon@1.7.0%gcc@13.1.0~strip~wayland build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
+[+]                  ^xkeyboard-config@2.34%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                      ^intltool@0.51.0%gcc@13.1.0 build_system=autotools patches=ca9d656 arch=linux-almalinux9-x86_64_v2
+[+]                          ^perl-xml-parser@2.47%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                              ^perl-libwww-perl@6.68%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-clone@0.46%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-b-cow@0.007%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-digest-md5@2.58%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-encode-locale@1.05%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-extutils-makemaker@7.70%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-file-listing@6.16%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-html-parser@3.78%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-html-tagset@3.24%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-http-cookies@6.11%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-http-daemon@6.16%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-http-tiny@0.088%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-http-cookiejar@0.014%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-mozilla-publicsuffix@1.0.6%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-test-deep@1.204%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-test-requires@0.11%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-io-socket-ssl@2.089%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-mozilla-ca@20211001%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-net-ssleay@1.94%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-io-socket-ip@0.41%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-module-build@0.42.34%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-cpan-meta-yaml@0.018%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-extutils-cbuilder@0.28.2.36%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-extutils-manifest@1.73%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-perl-ostype@1.010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-text-abbrev@1.02%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-module-build-tiny@0.048%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-extutils-config@0.010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-extutils-helpers@0.026%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-extutils-installpaths@0.013%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-extutils-parsexs@3.44%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-test-harness@3.44%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-module-metadata@1.000.037%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-http-date@6.06%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-time-local@1.30%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-timedate@2.33%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-http-message@6.45%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-compress-raw-zlib@2.212%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-io-compress@2.204%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-compress-raw-bzip2@2.212%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-io-compress-brotli@0.004_002%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-file-slurper@0.014%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-perlio-utf8-strict@0.010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                                  ^perl-test-exception@0.43%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                                      ^perl-sub-uplevel@0.28.00%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                              ^perl-test-warnings@0.033%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                          ^perl-time-hires@1.97.64_02%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                      ^perl-io-html@1.004%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-http-negotiate@6.01%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-lwp-mediatypes@6.04%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-net-http@6.23%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-scalar-list-utils@1.63%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-test-fatal@0.017%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-test-leaktrace@0.17%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-test-needs@0.002010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-test-requiresinternet@0.05%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-try-tiny@0.31%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-uri@5.12%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                                  ^perl-www-robotrules@6.02%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
+[+]                      ^libxslt@1.1.42%gcc@13.1.0+crypto~python build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                          ^libgcrypt@1.11.0%gcc@13.1.0 build_system=autotools patches=1ecb4ee,4e308ba arch=linux-almalinux9-x86_64_v2
+[+]                              ^libgpg-error@1.51%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                                  ^gawk@5.3.1%gcc@13.1.0~nls build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                                      ^gmp@6.3.0%gcc@13.1.0+cxx build_system=autotools libs=shared,static arch=linux-almalinux9-x86_64_v2
+[+]                                      ^mpfr@4.2.1%gcc@13.1.0 build_system=autotools libs=shared,static arch=linux-almalinux9-x86_64_v2
+[+]                                          ^autoconf-archive@2023.02.20%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                                          ^texinfo@7.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^libxrender@0.9.11%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^renderproto@0.11.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^pcre2@10.44%gcc@13.1.0~jit+multibyte+pic build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^sqlite@3.40.1%gcc@13.1.0+column_metadata+dynamic_extensions+fts~functions+rtree build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^xcb-util-image@0.4.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^xcb-util@0.4.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^xcb-util-keysyms@0.4.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^xcb-util-renderutil@0.3.10%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]              ^xcb-util-wm@0.4.2%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]                  ^m4@1.4.19%gcc@13.1.0+sigsegv build_system=autotools patches=9dc5fbd,bfdffa7 arch=linux-almalinux9-x86_64_v2
+[+]                      ^libsigsegv@2.14%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
+[+]          ^xmlrpc-c@1.51.06%gcc@13.1.0+curl build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]      ^artdaq-suite@v3_13_02%gcc@13.1.0+db+demo+epics~pcp build_system=bundle cxxstd=17 s=131 arch=linux-almalinux9-x86_64_v2
 [+]          ^art-suite@s131%gcc@13.1.0+root build_system=bundle arch=linux-almalinux9-x86_64_v2
 [+]              ^art@3.14.04%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
@@ -22,124 +135,26 @@
 [+]                  ^py-pip@24.3.1%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
 [+]                  ^py-setuptools@63.4.3%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
 [+]                  ^py-wheel@0.41.2%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
-[+]                  ^python-venv@1.0%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
 [+]              ^py-pybind11@2.10.4%gcc@13.1.0+ipo build_system=cmake build_type=Release generator=ninja arch=linux-almalinux9-x86_64_v2
 [+]              ^pythia6@6.4.28%gcc@13.1.0~ipo~root build_system=cmake build_type=Release generator=make nmxhep=4000 patches=d081752 arch=linux-almalinux9-x86_64_v2
 [+]              ^range-v3@0.12.0%gcc@13.1.0~doc~examples~ipo~perf build_system=cmake build_type=Release cxxstd=11 generator=make arch=linux-almalinux9-x86_64_v2
-[+]              ^sqlite@3.40.1%gcc@13.1.0+column_metadata+dynamic_extensions+fts~functions+rtree build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^xrootd@5.5.5%gcc@13.1.0~client_only+davix+http~ipo~krb5~python+readline~scitokens-cpp build_system=cmake build_type=Release cxxstd=14 generator=make patches=0d03eed,3596f45 arch=linux-almalinux9-x86_64_v2
 [+]                  ^json-c@0.18%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq@v3_13_02%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]              ^swig@4.1.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^pcre2@10.44%gcc@13.1.0~jit+multibyte+pic build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]              ^xmlrpc-c@1.51.06%gcc@13.1.0+curl build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-core@v3_10_02%gcc@13.1.0~doc~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-core-demo@v1_11_00%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-daqinterface@v3_14_00%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make patches=657f374 arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-database@v1_10_00%gcc@13.1.0+builtin_fhicl~ipo build_system=cmake build_type=Release cxxstd=20 generator=make patches=b27a7f3 arch=linux-almalinux9-x86_64_v2
-[+]              ^curl@8.11.1%gcc@13.1.0~gssapi~ldap~libidn2~librtmp~libssh~libssh2+nghttp2 build_system=autotools libs=shared,static tls=openssl arch=linux-almalinux9-x86_64_v2
-[+]                  ^nghttp2@1.64.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-demo@v3_13_00%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-epics-plugin@v1_06_00%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-mfextensions@v1_09_00%gcc@13.1.0+curl~ipo+kafka build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]              ^librdkafka@2.8.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]                  ^zlib@1.3.1%gcc@13.1.0+optimize+pic+shared build_system=makefile arch=linux-almalinux9-x86_64_v2
-[+]              ^qt@5.15.16%gcc@13.1.0~dbus~debug~doc~examples~framework~gtk+gui~location~opengl~phonon+shared+sql+ssl+tools~webkit build_system=generic patches=2081e9c,51aeba5,75bcb42,78c70fb,7f34d48,84b0991,9378afd arch=linux-almalinux9-x86_64_v2
-[+]                  ^double-conversion@3.3.0%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
-[+]                  ^glib@2.82.2%gcc@13.1.0~libmount~strip build_system=meson buildtype=release default_library=shared tracing=none arch=linux-almalinux9-x86_64_v2
-[+]                      ^elfutils@0.192%gcc@13.1.0~debuginfod+exeprefix+nls build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^harfbuzz@10.2.0%gcc@13.1.0~graphite2~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
-[+]                      ^cairo@1.18.2%gcc@13.1.0~X~dwrite+fc+ft+gobject+pdf+png~quartz~spectre~strip+svg~symbol-lookup~tee+zlib build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
-[+]                          ^lzo@2.10%gcc@13.1.0 build_system=autotools libs=shared,static arch=linux-almalinux9-x86_64_v2
-[+]                          ^pixman@0.44.0%gcc@13.1.0+shared~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
-[+]                      ^gobject-introspection@1.78.1%gcc@13.1.0~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
-[+]                  ^libmng@2.0.3%gcc@13.1.0~ipo build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
-[+]                      ^lcms@2.16%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^libtiff@4.7.0%gcc@13.1.0+ccitt~ipo~jbig+jpeg~jpeg12~lerc~libdeflate+logluv~lzma+lzw+next~old-jpeg~opengl+packbits~pic~pixarlog+shared+thunder~webp+zlib~zstd build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
-[+]                  ^libxkbcommon@1.7.0%gcc@13.1.0~strip~wayland build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
-[+]                      ^xkeyboard-config@2.34%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                          ^intltool@0.51.0%gcc@13.1.0 build_system=autotools patches=ca9d656 arch=linux-almalinux9-x86_64_v2
-[+]                              ^perl-xml-parser@2.47%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                  ^perl-libwww-perl@6.68%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-clone@0.46%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-b-cow@0.007%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-digest-md5@2.58%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-encode-locale@1.05%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-extutils-makemaker@7.70%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-file-listing@6.16%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-html-parser@3.78%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-html-tagset@3.24%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-http-cookies@6.11%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-http-daemon@6.16%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-http-tiny@0.088%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-http-cookiejar@0.014%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-mozilla-publicsuffix@1.0.6%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-test-deep@1.204%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-test-requires@0.11%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-io-socket-ssl@2.089%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-mozilla-ca@20211001%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-net-ssleay@1.94%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-io-socket-ip@0.41%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-module-build@0.42.34%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-cpan-meta-yaml@0.018%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-extutils-cbuilder@0.28.2.36%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-extutils-manifest@1.73%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-perl-ostype@1.010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-text-abbrev@1.02%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-module-build-tiny@0.048%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-extutils-config@0.010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-extutils-helpers@0.026%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-extutils-installpaths@0.013%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-extutils-parsexs@3.44%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-test-harness@3.44%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-module-metadata@1.000.037%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-http-date@6.06%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-time-local@1.30%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-timedate@2.33%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-http-message@6.45%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-compress-raw-zlib@2.212%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-io-compress@2.204%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-compress-raw-bzip2@2.212%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-io-compress-brotli@0.004_002%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-file-slurper@0.014%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-perlio-utf8-strict@0.010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                      ^perl-test-exception@0.43%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                          ^perl-sub-uplevel@0.28.00%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                                  ^perl-test-warnings@0.033%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                              ^perl-time-hires@1.97.64_02%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                          ^perl-io-html@1.004%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-http-negotiate@6.01%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-lwp-mediatypes@6.04%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-net-http@6.23%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-scalar-list-utils@1.63%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-test-fatal@0.017%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-test-leaktrace@0.17%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-test-needs@0.002010%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-test-requiresinternet@0.05%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-try-tiny@0.31%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-uri@5.12%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                                      ^perl-www-robotrules@6.02%gcc@13.1.0 build_system=perl arch=linux-almalinux9-x86_64_v2
-[+]                          ^libxslt@1.1.42%gcc@13.1.0+crypto~python build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                              ^libgcrypt@1.11.0%gcc@13.1.0 build_system=autotools patches=1ecb4ee,4e308ba arch=linux-almalinux9-x86_64_v2
-[+]                                  ^libgpg-error@1.51%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                                      ^gawk@5.3.1%gcc@13.1.0~nls build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                                          ^gmp@6.3.0%gcc@13.1.0+cxx build_system=autotools libs=shared,static arch=linux-almalinux9-x86_64_v2
-[+]                                          ^mpfr@4.2.1%gcc@13.1.0 build_system=autotools libs=shared,static arch=linux-almalinux9-x86_64_v2
-[+]                                              ^autoconf-archive@2023.02.20%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                                              ^texinfo@7.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^xcb-util-image@0.4.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                      ^xcb-util@0.4.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^xcb-util-keysyms@0.4.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^xcb-util-renderutil@0.3.10%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^xcb-util-wm@0.4.2%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^artdaq-utilities@v1_09_00%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
-[+]          ^cetmodules@3.26.00%gcc@13.1.0~docs~ipo~versioned-docs build_system=cmake build_type=Release generator=make arch=linux-almalinux9-x86_64_v2
-[+]              ^perl@5.40.0%gcc@13.1.0+cpanm+opcode+open+shared+threads build_system=generic arch=linux-almalinux9-x86_64_v2
-[+]                  ^berkeley-db@18.1.40%gcc@13.1.0+cxx~docs+stl build_system=autotools patches=26090f4,b231fcc arch=linux-almalinux9-x86_64_v2
 [+]          ^trace@v3_17_11%gcc@13.1.0~ipo~kmod+mf build_system=cmake build_type=Release generator=make patches=ab6c1d8 arch=linux-almalinux9-x86_64_v2
 [+]      ^binutils@2.43.1%gcc@13.1.0~debuginfod+gas+gold~gprofng+headers~interwork+ld~libiberty~lto~nls~pgo+plugins build_system=autotools compress_debug_sections=zlib libs=shared,static arch=linux-almalinux9-x86_64_v2
 [+]          ^diffutils@3.10%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]          ^gmake@4.4.1%gcc@13.1.0~guile build_system=generic arch=linux-almalinux9-x86_64_v2
 [+]          ^pkg-config@0.29.2%gcc@13.1.0+internal_glib build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^zlib-ng@2.2.3%gcc@13.1.0+compat+new_strategies+opt+pic+shared build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^zstd@1.5.6%gcc@13.1.0+programs build_system=makefile compression=none libs=shared,static arch=linux-almalinux9-x86_64_v2
@@ -150,14 +165,11 @@
 [+]      ^gcc-runtime@13.1.0%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
 [e]      ^glibc@2.34%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]      ^root@6.28.12%gcc@13.1.0~aqua~arrow~cuda~cudnn+davix~dcache~emacs+examples~fftw~fits~fortran+gdml+geom+geombuilder+gminimal~graphviz+gsl~http~ipo~jemalloc+math+minuit~mlp~mysql+opengl~oracle~postgres~pythia6~pythia8+python~r+roofit~root7+rpath~shadow+spectrum~sqlite~ssl+tbb+threads~tmva~tmva-cpu~tmva-gpu~tmva-pymva~tmva-sofie+unuran~vc+vdt~veccore+x+xml~xrootd build_system=cmake build_type=Release cxxstd=20 generator=make patches=22af347,8da3603 arch=linux-almalinux9-x86_64_v2
-[+]          ^cmake@3.27.9%gcc@13.1.0~doc+ncurses+ownlibs~qtgui build_system=generic build_type=Release patches=dbc3892 arch=linux-almalinux9-x86_64_v2
 [+]          ^davix@0.8.10%gcc@13.1.0~ipo~thirdparty build_system=cmake build_type=Release cxxstd=11 generator=make arch=linux-almalinux9-x86_64_v2
 [+]              ^libuuid@1.0.3%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^rapidjson@1.2.0-2024-08-16%gcc@13.1.0~doc~ipo build_system=cmake build_type=Release generator=make patches=ee123c7 arch=linux-almalinux9-x86_64_v2
 [+]          ^fontconfig@2.15.0%gcc@13.1.0~pic build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^font-util@1.4.1%gcc@13.1.0 build_system=autotools fonts=encodings,font-adobe-100dpi,font-adobe-75dpi,font-adobe-utopia-100dpi,font-adobe-utopia-75dpi,font-adobe-utopia-type1,font-alias,font-arabic-misc,font-bh-100dpi,font-bh-75dpi,font-bh-lucidatypewriter-100dpi,font-bh-lucidatypewriter-75dpi,font-bh-type1,font-bitstream-100dpi,font-bitstream-75dpi,font-bitstream-speedo,font-bitstream-type1,font-cronyx-cyrillic,font-cursor-misc,font-daewoo-misc,font-dec-misc,font-ibm-type1,font-isas-misc,font-jis-misc,font-micro-misc,font-misc-cyrillic,font-misc-ethiopic,font-misc-meltho,font-misc-misc,font-mutt-misc,font-schumacher-misc,font-screen-cyrillic,font-sun-misc,font-winitzki-cyrillic,font-xfree86-type1 arch=linux-almalinux9-x86_64_v2
-[+]                  ^autoconf@2.72%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^automake@1.16.5%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]                  ^bdftopcf@1.1.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]                      ^fontsproto@2.1.3%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]                      ^libxfont@1.5.4%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
@@ -187,15 +199,8 @@
 [+]          ^libx11@1.8.10%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^inputproto@2.3.2%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^kbproto@1.0.7%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]              ^libxcb@1.17.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^libpthread-stubs@0.5%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^libxau@1.0.12%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^libxdmcp@1.1.5%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^xcb-proto@1.17.0%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^libxext@1.3.6%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^libxft@2.3.8%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]              ^libxrender@0.9.11%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^renderproto@0.11.1%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^libxml2@2.9.12%gcc@13.1.0~http+pic~python+shared build_system=autotools patches=5dc43fe arch=linux-almalinux9-x86_64_v2
 [+]          ^libxpm@3.5.17%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^gettext@0.23.1%gcc@13.1.0+bzip2+curses+git~libunistring+libxml2+pic+shared+tar+xz build_system=autotools arch=linux-almalinux9-x86_64_v2
@@ -204,8 +209,6 @@
 [+]          ^lz4@1.10.0%gcc@13.1.0+pic build_system=makefile libs=shared,static arch=linux-almalinux9-x86_64_v2
 [+]          ^mesa@23.3.6%gcc@13.1.0+glx+llvm+opengl~opengles+osmesa~strip build_system=meson buildtype=release default_library=shared arch=linux-almalinux9-x86_64_v2
 [+]              ^bison@3.8.2%gcc@13.1.0~color build_system=autotools arch=linux-almalinux9-x86_64_v2
-[+]                  ^m4@1.4.19%gcc@13.1.0+sigsegv build_system=autotools patches=9dc5fbd,bfdffa7 arch=linux-almalinux9-x86_64_v2
-[+]                      ^libsigsegv@2.14%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^expat@2.6.4%gcc@13.1.0+libbsd build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]              ^flex@2.6.3%gcc@13.1.0+lex~nls build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]                  ^findutils@4.10.0%gcc@13.1.0 build_system=autotools patches=440b954 arch=linux-almalinux9-x86_64_v2
@@ -257,8 +260,6 @@
 [+]          ^windriver@v12_06_00%gcc@13.1.0 build_system=generic arch=linux-almalinux9-x86_64_v2
 [+]      ^sbndaq-artdaq-core@migration%gcc@13.1.0+icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^boost@1.82.0%gcc@13.1.0+atomic+chrono~clanglibcpp~container~context~contract~coroutine+date_time~debug+exception~fiber+filesystem+graph~graph_parallel+icu+iostreams+json+locale+log+math~mpi+multithreaded~nowide~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded~stacktrace+system~taggedlayout+test+thread+timer~type_erasure~url~versionedlayout+wave build_system=generic cxxstd=20 patches=a440f96,a7c807f,b8569d7 visibility=hidden arch=linux-almalinux9-x86_64_v2
-[+]              ^icu4c@74.2%gcc@13.1.0 build_system=autotools cxxstd=11 arch=linux-almalinux9-x86_64_v2
-[+]                  ^libtool@2.4.7%gcc@13.1.0 build_system=autotools arch=linux-almalinux9-x86_64_v2
 [+]          ^cetlib@3.18.02%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^cetlib-except@1.09.01%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2
 [+]          ^messagefacility@2.10.05%gcc@13.1.0~ipo build_system=cmake build_type=Release cxxstd=20 generator=make arch=linux-almalinux9-x86_64_v2

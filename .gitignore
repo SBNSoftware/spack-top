@@ -175,3 +175,5 @@ cython_debug/
 
 private/gpg/*
 !private/gpg/*.pub
+
+*.spec.txt

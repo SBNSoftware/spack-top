@@ -1,5 +1,5 @@
 -- linux-almalinux9-x86_64_v2 / gcc@13.1.0 ----------------------
-7znvcip sbndaq-suite@migration_artdaqv3_13_02%gcc ~gdb+icarus+sbnd build_system=bundle cxxstd=20 s=131
+b7yoljc sbndaq-suite@migration_artdaqv3_13_02%gcc ~gdb+icarus+sbnd build_system=bundle cxxstd=17 s=131
 uw7wx2s     artdaq-runcontrol-gui@v1_03_06%gcc ~ipo build_system=cmake build_type=Release generator=make patches=a38d9f3
 vrxbl4n         cetmodules@3.26.00%gcc ~docs~ipo~versioned-docs build_system=cmake build_type=Release generator=make
 4xhrko4             perl@5.40.0%gcc +cpanm+opcode+open+shared+threads build_system=generic
@@ -113,7 +113,7 @@ avvxe7v             xcb-util-wm@0.4.2%gcc  build_system=autotools
 veqio75                 m4@1.4.19%gcc +sigsegv build_system=autotools patches=9dc5fbd,bfdffa7
 satmo7y                     libsigsegv@2.14%gcc  build_system=autotools
 uzm6f4y         xmlrpc-c@1.51.06%gcc +curl build_system=autotools
-x56sjoq     artdaq-suite@v3_13_02%gcc +db+demo+epics~pcp build_system=bundle cxxstd=20 s=131
+qjxroei     artdaq-suite@v3_13_02%gcc +db+demo+epics~pcp build_system=bundle cxxstd=17 s=131
 zplawib         art-suite@s131%gcc +root build_system=bundle
 irakbim             art@3.14.04%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
 qzhaa5h             art-root-io@1.13.06%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
