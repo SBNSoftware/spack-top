@@ -256,7 +256,6 @@ reindex_spack_database() {
 }
 
 # Parse command line arguments for environment setup
-#unset the function if it exists
 if declare -f parse_arguments &>/dev/null; then
     unset -f parse_arguments
 fi
@@ -264,67 +263,112 @@ fi
 parse_arguments() {
     # Initialize default values for arguments
     NON_INTERACTIVE=${NON_INTERACTIVE:-false}
-    DEVNAME=${DEVNAME:-"XYZ"}
+    DEVNAME=${DEVNAME:-"NOTSET"}
     DEFAULT_VERSION=${DEFAULT_VERSION:-""}
     SPACK_USE_USER_CONFIG=${SPACK_USE_USER_CONFIG:-true}
     RUN_BUILD=${RUN_BUILD:-true}
     SPACK_MICRO_ARCH=${SPACK_MICRO_ARCH:-"v2"}
     
+    local default_config_file
+    
+    if default_config_file=$(find_default_config_file); then
+        SPACK_ENVFILE="${default_config_file}"
+    fi
+
+    # check if MY_CONFIG_FILE is set and if it is, use it
+    if [[ -n "${MY_CONFIG_FILE:-}" ]]; then
+        SPACK_ENVFILE="${MY_CONFIG_FILE}"
+    fi
+
+    local i=0
     while [[ $# -gt 0 ]]; do
+        i=$((i+1))
         case $1 in
+            -h|--help|/?)
+                print_usage
+                exit 0
+                ;;
             --non-interactive)
                 NON_INTERACTIVE=true
                 shift
                 ;;
-            --dev-name)
-                if [[ -z "${2:-}" ]]; then
+            --dev-name|--dev-name=*)
+                if [[ "$1" == *"="* ]]; then
+                    DEVNAME="${1#*=}"
+                    shift
+                elif [[ -n "${2:-}" && "${2:0:1}" != "-" ]]; then
+                    DEVNAME="$2"
+                    shift 2
+                else
                     log_error "Missing argument for --dev-name"
                     print_usage
                     exit 1
                 fi
-                DEVNAME="$2"
-                shift 2
                 ;;
-            --default-version)
-                if [[ -z "${2:-}" ]]; then
+            --default-version|--default-version=*)
+                if [[ "$1" == *"="* ]]; then
+                    DEFAULT_VERSION="${1#*=}"
+                    shift
+                elif [[ -n "${2:-}" && "${2:0:1}" != "-" ]]; then
+                    DEFAULT_VERSION="$2"
+                    shift 2
+                else
                     log_error "Missing argument for --default-version"
                     print_usage
                     exit 1
                 fi
-                # Override the first element of DAQ_PKG_VERSIONS with this version
-                DEFAULT_VERSION="$2"
-                shift 2
-                ;;
-            --global-config)
-                SPACK_USE_USER_CONFIG=false
-                shift
                 ;;
             --no-build)
                 RUN_BUILD=false
                 shift
                 ;;
-            --activate)
-                ACTIVATE_DAQ_DEVELOPMENT_AREA=true
-                shift
-                ;;
-            --config=*)
-                SPACK_ENVFILE="${1#*=}"
-                if [[ ! -f "${SPACK_ENVFILE}" && ! -w "$(dirname "${SPACK_ENVFILE}")" ]]; then
-                    log_error "Cannot write to config file location: ${SPACK_ENVFILE}"
+            --config|--config=*)
+                if [[ "$1" == *"="* ]]; then
+                    SPACK_ENVFILE="${1#*=}"
+                    readonly SPACK_ENVFILE
+                    shift
+                elif [[ -n "${2:-}" && "${2:0:1}" != "-" ]]; then
+                    SPACK_ENVFILE="$2"
+                    readonly SPACK_ENVFILE
+                    shift 2
+                else
+                    log_error "Missing argument for --config"
+                    print_usage
                     exit 1
                 fi
+                ;;
+            --micro-arch=*)
+                SPACK_MICRO_ARCH="${1#*=}"
                 shift
                 ;;
-            *)
+            --micro-arch)
+                if [[ -n "${2:-}" && "${2:0:1}" != "-" ]]; then
+                    SPACK_MICRO_ARCH="$2"
+                    shift 2
+                else
+                    log_error "Missing argument for --micro-arch"
+                    print_usage
+                    exit 1
+                fi
+                ;;
+            -*)
                 log_error "Unknown option: $1"
                 print_usage
                 exit 1
                 ;;
+            *)
+                log_warn "Ignoring unexpected argument: $1"
+                shift
+                ;;
         esac
+        
+        if [[ $i -gt 100 ]]; then
+            log_error "Too many arguments or possible infinite loop in argument parsing"
+            exit 1
+        fi
     done
     
-    # Export arguments for use in other functions
-    export NON_INTERACTIVE DEVNAME DEFAULT_VERSION SPACK_USE_USER_CONFIG RUN_BUILD SPACK_MICRO_ARCH
+    export NON_INTERACTIVE DEVNAME DEFAULT_VERSION SPACK_USE_USER_CONFIG RUN_BUILD SPACK_MICRO_ARCH SPACK_ENVFILE    
 }
 
 # If directly executed (not sourced), display help
@@ -366,4 +410,28 @@ add_package_to_environment() {
     fi
     
     return 0
-} 
+}
+
+# Find the default configuration file
+find_default_config_file() {
+    local config_name="${1:-${SPACK_ENVFILE:-}}"
+    
+    
+    local search_paths=(
+        "./${config_name}"
+        "${HOME}/DAQ_SPACK_DevAreas/${config_name}"
+        "${HOME}/${config_name}"
+        "$(dirname "${SCRIPT_DIR}")/${config_name}"
+    )
+
+    # First try exact filename match
+    for path in "${search_paths[@]}"; do
+        if [[ -f "${path}" ]]; then
+            log_debug "Found default config file: ${path}"
+            echo "${path}"
+            return 0
+        fi
+    done
+            
+    return 1
+}

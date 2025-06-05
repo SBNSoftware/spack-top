@@ -295,14 +295,13 @@ create_default_config() {
         cat > "${config_file}" << EOF || {
 # Default configuration generated on $(date)
 
-DEVNAME=EFG
+DEVNAME=ALICE
 # DAQ suite configuration
 DAQ_PKG_NAME=sbndaq-suite
 
 # Format: version:qualifier:compiler:standard,\\
 #         version:qualifier:compiler:standard
-DAQ_PKG_VERSIONS=migration_artdaqv3_13_02:s131:gcc13.1.0:c++20,\\
-migration_artdaqv3_13_02:s132:gcc13.1.0:c++20
+DAQ_PKG_VERSIONS=migration_artdaqv3_13_02:s131:gcc13.1.0:c++20
 DAQ_PKG_SBNENV=sbn-fd
 DAQ_PKG_CHECKOUT_PACKAGES=sbndaq@upgrade_gcc13.1.0,sbndaq-artdaq@upgrade_gcc13.1.0,\\
 sbndaq-artdaq-core@upgrade_gcc13.1.0,wibtools@upgrade_gcc13.1.0
@@ -321,7 +320,7 @@ SPACK_USE_USER_CONFIG=true
 RUN_BUILD=true
 BUILD_THREADS=8
 DEBUG_BUILD=false
-ENABLE_TESTS=true
+ENABLE_TESTS=false
 ENABLE_GIT_PUSH=true
 ALLOW_HOSTS=vm-60,vm-51
 ALLOW_USERS=artdaq,icarus,sbnd
@@ -334,14 +333,13 @@ EOF
         cat > "${config_file}" << EOF || {
 # Default configuration generated on $(date)
 
-DEVNAME=ABC
+DEVNAME=ALICE
 # DAQ project configuration
 DAQ_PKG_NAME=artdaq-database
 
 # Format: version:qualifier:compiler:standard,\
 #         version:qualifier:compiler:standard
-DAQ_PKG_VERSIONS=v1_10_00::gcc13.1.0:c++20,\
-v1_10_00::gcc13.1.0:c++17
+DAQ_PKG_VERSIONS=v1_10_00::gcc13.1.0:c++20
 DAQ_PKG_CHECKOUT_PACKAGES=artdaq-database@v1_10_00
 
 
@@ -358,7 +356,7 @@ SPACK_USE_USER_CONFIG=true
 RUN_BUILD=true
 BUILD_THREADS=8
 DEBUG_BUILD=false
-ENABLE_TESTS=true
+ENABLE_TESTS=false
 ENABLE_GIT_PUSH=true
 ALLOW_HOSTS=vm-60,vm-51
 ALLOW_USERS=artdaq,icarus,sbnd
@@ -374,8 +372,8 @@ EOF
     fi
     
     log_success "Default configuration file created at: ${config_file}"
-    log_info "Please review the configuration file before continuing"
-    return 0
+    log_warn "Please review and edit the configuration file ${config_file} before continuing"
+    exit 1
 }
 
 # If directly executed (not sourced), display help

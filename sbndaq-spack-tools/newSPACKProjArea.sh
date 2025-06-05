@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 # Script configuration
-declare -r SPACK_ENVFILE="$(basename "${BASH_SOURCE[0]%.*}").env"
+SPACK_ENVFILE="$(basename "${BASH_SOURCE[0]%.*}").env"
 
 # Ensure script is executed, not sourced
 if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then

@@ -61,7 +61,10 @@ load_build_config() {
             missing_vars=$((missing_vars + 1))
         else
             export "${var}"
-            readonly "${var}" 2>/dev/null || true
+            #exclude SPACK_ENVFILE from being set as readonly   
+            if [[ "${var}" != "SPACK_ENVFILE" ]]; then
+                readonly "${var}" 2>/dev/null || true
+            fi
         fi
     done
 

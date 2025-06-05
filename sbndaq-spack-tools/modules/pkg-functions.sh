@@ -346,8 +346,9 @@ build_packages() {
     local build_lock=$(format_path_name "${spack_env_top_dir}/${package_name}-${version}" "${gcc_version}" "${qualifiers}" "${arch}" "-").build_lock.txt
 
     if [[ -f "${build_lock}" ]]; then
-        read_with_timeout "Build already succeeded - skip build? (Y/n): " "y"
-        if [[ ${skip_build,,} == "n" ]]; then   
+        local skip_build
+        skip_build=$(read_with_timeout "Build already succeeded - skip build? (Y/n): " "y")
+        if [[ ${skip_build,,} == "y" ]]; then   
             log_info "Ok, skipping build, you can always run this script again to build the package"
             generate_package_buildcache  "${package_name}"  "${version}"  "${gcc_version}"  "${qualifiers}"  "${arch}"  "${spack_env_top_dir}"
             return 0

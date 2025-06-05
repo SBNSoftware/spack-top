@@ -40,7 +40,7 @@ ask_for_continue() {
 read_with_timeout() {
     local prompt="$1" 
     local default="$2" 
-    local timeout="${3:-5}"
+    local timeout="${3:-10}"
 
     if [[ "${NON_INTERACTIVE}" == true ]]; then
         log_debug "Non-interactive mode active - using default: ${default}"

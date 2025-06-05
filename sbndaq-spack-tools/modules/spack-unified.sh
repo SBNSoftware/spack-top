@@ -34,17 +34,36 @@ Options:
     --dev-name NAME       Set developer name for directory naming (default: XYZ)
     --default-version VER Set specific version instead of latest available
     --non-interactive     Run without user prompts (default: false)
+    --config FILE         Specify configuration file path (can be absolute or relative)
     -h, --help            Display this help message and exit
+
+Environment Variables:
+    MY_CONFIG_FILE       Alternative way to specify config file path (--config takes precedence)
+    DEVNAME              Alternative to --dev-name option
+    DEFAULT_VERSION      Alternative to --default-version option
+
+Configuration File:
+    The script searches for a configuration file in the following order:
+    1. File specified by --config option
+    2. File specified by MY_CONFIG_FILE environment variable
+    3. Current directory (./*.env)
+    4. ${HOME}/DAQ_SPACK_DevAreas/*.env
+    5. Home directory (~/*.env)
+    6. Parent directory of script
+    7. If not found, creates a default file at ~/newSPACKDevArea.env
 
 Examples:
     $(basename "$0") --dev-name ALICE --default-version v1_10_07
+    $(basename "$0") --config=~/myconfig.env
+    $(basename "$0") --config ./myconfig.env
+    MY_CONFIG_FILE=~/myconfig.env $(basename "$0")
 EOF
 }
 
 # Main function for setting up a development environment
 setup_daq_development_area() {
     local pkg_type="${1:-suite}"  # 'suite' or 'proj'
-    local config_file="${2:-$(basename "${BASH_SOURCE[0]%.*}").env}"
+    #local config_file="${2:-$(basename "${BASH_SOURCE[0]%.*}").env}"
     shift 2
 
     # Initialize log directory
@@ -55,22 +74,37 @@ setup_daq_development_area() {
     # Set up signal handlers
     setup_signal_handlers
     
-    # Create or verify configuration file
+    # Parse command line arguments
+    parse_arguments "$@"
+
+    local config_file=${SPACK_ENVFILE}
+    local tmp_devname=${DEVNAME:-"NOTSET"}
+
     if ! create_default_config "${config_file}" "${pkg_type}"; then
         log_error "Failed to create or verify configuration file"
         exit 1
     fi
-    
+
+    log_info "Using configuration file: ${config_file}"
+
     # Set the default value for ACTIVATE_DAQ_DEVELOPMENT_AREA
     export ACTIVATE_DAQ_DEVELOPMENT_AREA=false
-
-    # Parse command line arguments
-    parse_arguments "$@"
     
     # Load configuration from file
     local required_vars="DEVNAME:DAQ_PKG_NAME:DAQ_PKG_VERSIONS:DAQ_PKG_CHECKOUT_PACKAGES:SPACK_SOFTWARE_BASE:SPACK_DIR:SPACK_VERSION:SPACK_MIRROR_BASE:SPACK_DAQ_AREAS:SPACK_PACKAGES_TOP:SPACK_USE_USER_CONFIG:RUN_BUILD:BUILD_THREADS:DEBUG_BUILD:ENABLE_TESTS:ENABLE_GIT_PUSH:ALLOW_HOSTS:ALLOW_USERS"
     if ! load_build_config "${config_file}" "${required_vars}"; then
         log_warn "Using default values due to configuration load failure"
+    fi
+
+    if [[ "${tmp_devname}" != "NOTSET" ]]; then
+        DEVNAME="${tmp_devname}"
+    fi
+
+    # check if the DEVNAME is set, is between 3 and 6 characters and contains only upper case alpha characters
+    if [[ -z "${DEVNAME}" || ${#DEVNAME} -lt 3 || ${#DEVNAME} -gt 6 || ! "${DEVNAME}" =~ ^[A-Z]+$ ]]; then
+        log_error "Invalid developer name: ${DEVNAME}"
+        log_error "Developer name must be between 3 and 6 characters and contain only upper case alpha characters"
+        exit 1
     fi
 
     # Check if the user is in the ALLOW_USERS list
@@ -123,9 +157,7 @@ setup_daq_development_area() {
     
     # Format qualifiers for spack commands
     local QUALIFIERS=$(format_spack_qualifiers "${QUALIFIER}" "${CXXSTD}")
-    
-    log_debug "Parsed values: VERSION=${VERSION}, QUALIFIERS=${QUALIFIERS}, GCC_VERSION=${GCC_VERSION}"
-    
+        
     log_debug "Setting up Spack environment with GCC ${GCC_VERSION}"
     echo "# Spack commands executed:" > "${CMDS_FILE}"
     
@@ -146,11 +178,15 @@ setup_daq_development_area() {
     echo
     log_info "Selected ${DAQ_PKG_NAME} version: ${version}"
     
-    if [[ ! "${MY_SPACK_PROJECT}" =~ ^DAQ_[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-zA-Z0-9_]+_[vV0-9]+$ ]]; then
-        log_error "MY_SPACK_PROJECT is not set correctly"
-        exit 1
-    else
-        if [[ ! -d "${SPACK_DAQ_AREAS}/${MY_SPACK_PROJECT}" ]]; then
+    #if the MY_SPACK_PROJECT set, then check if it is a valid project name
+    if [[ -n "${MY_SPACK_PROJECT:-}" ]]; then
+        if [[ ! "${MY_SPACK_PROJECT}" =~ ^DAQ_[0-9]{4}-[0-9]{2}-[0-9]{2}_.*[vV][0-9]+_[0-9]{2}_[0-9]{2}$ ]]; then
+            log_error "MY_SPACK_PROJECT:\'${MY_SPACK_PROJECT}\' does not match the expected format: DAQ_YYYY-MM-DD_<project_name>vN_NN_NN"
+            log_info "Example: export MY_SPACK_PROJECT=DAQ_2024-01-01_ALICE_MyProjectv1_00_00"
+            log_info "It is recommended to be using the ${SPACK_DAQ_AREAS} directory for your projects."
+            unset MY_SPACK_PROJECT
+            exit 1
+        elif [[ ! -d "${SPACK_DAQ_AREAS}/${MY_SPACK_PROJECT}" ]]; then
             log_error "MY_SPACK_PROJECT directory does not exist: ${SPACK_DAQ_AREAS}/${MY_SPACK_PROJECT}, please set MY_SPACK_PROJECT to a valid project name."
             log_info "Example: export MY_SPACK_PROJECT=DAQ_2024-01-01_ALICE_MyProjectv1_00_00"
             log_info "It is recommended to be using the ${SPACK_DAQ_AREAS} directory for your projects."

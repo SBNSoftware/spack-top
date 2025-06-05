@@ -246,12 +246,8 @@ run_daq_build() {
         local compiler="${config_parts[2]}"
         local cxxstd="${config_parts[3]}"
         
-        # Extract gcc version from compiler string (e.g., gcc13.1.0 -> 13.1.0)
         local gcc_version="${compiler#gcc}"
 
-        # Format qualifiers for spack commands
-        # Pass the qualifier directly to format_spack_qualifiers
-        # The function will handle any 's' prefix already in the qualifier
         local qualifiers=$(format_spack_qualifiers "${qualifier}" "${cxxstd}")
         
         log_info "Building configuration: ${daq_suite_name}@${version} with ${qualifiers} using ${compiler}"
