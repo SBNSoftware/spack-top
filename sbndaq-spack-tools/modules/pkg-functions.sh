@@ -393,8 +393,8 @@ build_packages() {
                 
                 log_info "Entering build environment for ${pkg_name}"
                 log_info "Available commands in build environment:"
-                log_info "  make    # Build the package"
-                log_info "  exit 0  # Exit build environment"
+                log_info "  make -j8 # Build the package"
+                log_info "  exit 0   # Exit build environment"
 
                 log_command "spack cd --build-dir ${pkg_name}" 
                 spack cd --build-dir ${pkg_name}
@@ -403,10 +403,9 @@ build_packages() {
                 spack build-env "${pkg_name}" -- bash
 
                 local build_status
-                read -p "Did the build succeed? (y/n): " build_status
+                build_status=$(read_with_timeout "Did the build succeed? (y/N): " "n")
                 if [[ ${build_status,,} == "y" ]]; then
                     log_debug "Build succeeded - creating buildcache"
-                    touch "${build_success}"
                     continue
                 fi
             else
@@ -415,7 +414,7 @@ build_packages() {
         done
         
         local continue_response
-        read -p "Continue with buildcache creation? (y/n): " continue_response
+        continue_response=$(read_with_timeout "Continue with buildcache creation? (Y/n): " "y")
         if [[ ${continue_response,,} == "y" ]]; then
             generate_package_buildcache  "${package_name}" "${version}"  "${gcc_version}"  "${qualifiers}" "${arch}" "${spack_env_top_dir}"
             return 0
