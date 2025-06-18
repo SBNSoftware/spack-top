@@ -12,3 +12,16 @@ compilers:
     modules: []
     environment: {}
     extra_rpaths: []
+- compiler:
+    spec: gcc@=4.8.5
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: scientific7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
