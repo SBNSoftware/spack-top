@@ -12,3 +12,16 @@ compilers:
     modules: []
     environment: {}
     extra_rpaths: []
+- compiler:
+    spec: gcc@=11.5.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: null
+      fc: null
+    flags: {}
+    operating_system: almalinux9
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []

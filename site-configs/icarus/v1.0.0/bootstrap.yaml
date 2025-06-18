@@ -1,0 +1,4 @@
+bootstrap:
+  trusted:
+    github-actions-v0.6: true
+    github-actions-v0.5: true

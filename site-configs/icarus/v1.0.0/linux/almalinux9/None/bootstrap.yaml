@@ -1,0 +1,16 @@
+bootstrap:
+  trusted:
+    # By default we trust bootstrapping from sources and from binaries
+    # produced on Github via the workflow
+    github-actions-v0.6: true
+    github-actions-v0.5: true
+    spack-install: true
+  enable: true
+  root: $spack/../bootstrap
+  sources:
+  - name: github-actions-v0.6
+    metadata: $spack/share/spack/bootstrap/github-actions-v0.6
+  - name: github-actions-v0.5
+    metadata: $spack/share/spack/bootstrap/github-actions-v0.5
+  - name: spack-install
+    metadata: $spack/share/spack/bootstrap/spack-install
