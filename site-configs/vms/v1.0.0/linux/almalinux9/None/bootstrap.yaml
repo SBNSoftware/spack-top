@@ -6,7 +6,7 @@ bootstrap:
     github-actions-v0.5: true
     spack-install: true
   enable: true
-  root: /daq/software/spack_packages/spack/v1.0.1.sbnd/bootstrap
+  root: $spack/../bootstrap
   sources:
   - name: github-actions-v0.6
     metadata: $spack/share/spack/bootstrap/github-actions-v0.6
