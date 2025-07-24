@@ -13,6 +13,10 @@ if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
     return 1
 fi
 
+export SPACK_NO_LOCK=true
+export SPACK_USER_CACHE_PATH=$(mktemp -d /tmp/spack-cache-XXXXXX)
+mkdir -p "${SPACK_USER_CACHE_PATH}"
+
 # Source required scripts
 MAIN_SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "${MAIN_SCRIPT_DIR}/modules/common-functions.sh"

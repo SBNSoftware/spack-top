@@ -86,6 +86,8 @@ config:
   install_tree:
     root: ${SPACK_DAQ_AREAS}/${dir_name}/spack_packages
     padded_length: 255
+  misc_cache: ${SPACK_DAQ_AREAS}/${dir_name}/spack-cache
+  locks: false
 EOF
     then
         log_error "Failed to create config.yaml file"
