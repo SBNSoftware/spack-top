@@ -1,6 +1,4 @@
 config:
-  misc_cache: /home/artdaq/DAQ_SPACK_DevAreasRAM/DAQ_2025-07-29_GAL_migration_artdaqv3_13_02/spack-cache
-  locks: false
   deprecated: true
   extensions:
   - $spack/../spack-mpd
