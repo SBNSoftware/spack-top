@@ -1,4 +1,6 @@
 config:
+  misc_cache: /home/artdaq/DAQ_SPACK_DevAreasRAM/DAQ_2025-07-29_GAL_migration_artdaqv3_13_02/spack-cache
+  locks: false
   deprecated: true
   extensions:
   - $spack/../spack-mpd
@@ -12,7 +14,6 @@ config:
   - $user_cache_path/stage
   test_stage: $user_cache_path/test
   source_cache: $spack/var/spack/cache
-  misc_cache: $user_cache_path/cache
   connect_timeout: 10
   verify_ssl: true
   ssl_certs: $SSL_CERT_FILE
@@ -62,4 +63,3 @@ config:
     rm: remove
   debug: false
   build_jobs: 16
-  locks: true
