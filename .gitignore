@@ -177,3 +177,4 @@ private/gpg/*
 !private/gpg/*.pub
 bootstrap/store/*
 *.spec.txt
+*.bak

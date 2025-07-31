@@ -1,7 +1,2 @@
-/daq/software/spack_mirrors/gcc/v13_1_0
-/daq/software/spack_mirrors/tools/binutils/v2_43_01
 /daq/software/spack_mirrors/sbndaq-suite/s131-e28
 /daq/software/spack_mirrors/sbndaq-suite/s132-e28
-/daq/software/spack_mirrors/artdaq-suite/s131-e28
-/daq/software/spack_mirrors/artdaq-suite/s132-e28
-/daq/software/spack_packages/spack/v1.0.1.sbnd
