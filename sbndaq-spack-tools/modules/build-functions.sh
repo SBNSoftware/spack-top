@@ -146,9 +146,13 @@ build_package_version() {
             return 1
         fi
 
-        if ! push_to_buildcache "${package_name}" "${version}" "${gcc_version}" "${qualifiers}" "${arch}" "${spack_dir}" "${spack_version}" "${mirror_base}"; then
+        if [[ -z "${SKIP_PUSH_TO_BUILDCACHE-}" || "${SKIP_PUSH_TO_BUILDCACHE,,}" != "true" ]]; then
+          if ! push_to_buildcache "${package_name}" "${version}" "${gcc_version}" "${qualifiers}" "${arch}" "${spack_dir}" "${spack_version}" "${mirror_base}"; then
             log_error "Failed to push to buildcache: ${package_name}@${version} ${qualifiers}"
             return 1
+          fi
+        else
+          log_info "Skipping push to build cache because SKIP_PUSH_TO_BUILDCACHE is set to 'true'." >&2
         fi
 
         local e_version=$(get_qualifier_e_version "${gcc_version}")

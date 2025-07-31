@@ -1,5 +1,5 @@
 -- linux-scientific7-x86_64_v2 / gcc@13.1.0 ---------------------
-hphze7j sbndaq-suite@v1_10_08%gcc ~gdb+icarus+sbnd build_system=bundle cxxstd=20 s=131
+ey442qb sbndaq-suite@v1_10_08%gcc ~gdb+icarus+sbnd build_system=bundle cxxstd=20 s=131
 3wgummo     artdaq-suite@v3_13_02%gcc +db+demo+epics~pcp build_system=bundle cxxstd=20 s=131
 xcjzwqb         art-suite@s131%gcc +root build_system=bundle
 a5n573k             art@3.14.04%gcc ~ipo build_system=cmake build_type=Release cxxstd=20 generator=make
@@ -244,8 +244,8 @@ s2335dn         xextproto@7.3.0%gcc  build_system=autotools
 uatu2pr         xproto@7.0.31%gcc  build_system=autotools
 civajpu         xxhash@0.8.3%gcc  build_system=makefile
 huzk4qy         xz@5.4.6%gcc ~pic build_system=autotools libs=shared,static
-gngkkii     sbndaq@v1_10_08%gcc +icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make
-36rypne     sbndaq-artdaq@v1_10_08%gcc +icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make
+2rppgyf     sbndaq@v1_10_08%gcc +icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make
+kmyptxe     sbndaq-artdaq@v1_10_08%gcc +icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make
 6rxecdv         cppzmq@4.10.0%gcc ~drafts~ipo build_system=cmake build_type=Release generator=make
 ydhmebz             libzmq@4.3.5%gcc ~docs~drafts+libbsd+libsodium~libunwind build_system=autotools
 d5eaj4b                 libsodium@1.0.20%gcc  build_system=autotools
@@ -256,7 +256,7 @@ xo53idi         libpqxx@7.10.0%gcc ~ipo build_system=cmake build_type=Release ge
 zpfnb34         postgresql@15.2%gcc ~client_only~gssapi~perl~python~tcl~threadsafe~xml build_system=autotools lineedit=readline
 y2dxdcz         redis@7.4.0%gcc ~systemd~tls build_system=makefile
 u5b6a4c         windriver@v12_06_00%gcc  build_system=generic
-mbeia5v     sbndaq-artdaq-core@v1_10_08%gcc +icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make
+zpv2jyj     sbndaq-artdaq-core@v1_10_08%gcc +icarus~ipo+sbnd build_system=cmake build_type=Release cxxstd=17 generator=make
 htibuoy         boost@1.82.0%gcc +atomic+chrono~clanglibcpp~container~context~contract~coroutine+date_time~debug+exception~fiber+filesystem+graph~graph_parallel+icu+iostreams+json+locale+log+math~mpi+multithreaded~nowide~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded~stacktrace+system~taggedlayout+test+thread+timer~type_erasure~url~versionedlayout+wave build_system=generic cxxstd=20 patches=a440f96,a7c807f,b8569d7 visibility=hidden
 ospcivq             icu4c@74.2%gcc  build_system=autotools cxxstd=11
 fghaz5f                 libtool@2.4.7%gcc  build_system=autotools
