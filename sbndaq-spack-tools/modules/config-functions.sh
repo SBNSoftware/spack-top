@@ -303,10 +303,10 @@ DAQ_PKG_NAME=sbndaq-suite
 
 # Format: version:qualifier:compiler:standard,\\
 #         version:qualifier:compiler:standard
-DAQ_PKG_VERSIONS=migration_artdaqv3_13_02:s131:gcc13.1.0:c++20
+DAQ_PKG_VERSIONS=v1_10_08:s131:gcc13.1.0:c++20
 DAQ_PKG_SBNENV=sbn-fd
-DAQ_PKG_CHECKOUT_PACKAGES=sbndaq@upgrade_gcc13.1.0,sbndaq-artdaq@upgrade_gcc13.1.0,\\
-sbndaq-artdaq-core@upgrade_gcc13.1.0,wibtools@upgrade_gcc13.1.0
+DAQ_PKG_CHECKOUT_PACKAGES=sbndaq@v1_10_08,sbndaq-artdaq@v1_10_08,\\
+sbndaq-artdaq-core@v1_10_08,wibtools@v1_10_08
 
 
 # Spack configuration
