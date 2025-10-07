@@ -38,6 +38,12 @@ mirrors:
   sbndaq-suite-v1_10_06:
     url: file:///daq/software/spack_mirrors/sbndaq-suite/v1_10_06
     signed: false
+  sbndaq-suite-v1_10_08:
+    url: file:///daq/software/spack_mirrors/sbndaq-suite/v1_10_08
+    signed: false
+  sbndaq-suite-v1_10_09:
+    url: file:///daq/software/spack_mirrors/sbndaq-suite/v1_10_09
+    signed: false
 
   gcc-v13_1_0:
     url: file:///daq/software/spack_mirrors/gcc/v13_1_0
