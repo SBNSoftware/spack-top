@@ -173,6 +173,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+**/CLAUDE.md
 private/gpg/*
 !private/gpg/*.pub
 bootstrap/store/*

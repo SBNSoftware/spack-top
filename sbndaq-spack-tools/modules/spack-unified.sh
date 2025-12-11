@@ -198,14 +198,17 @@ setup_daq_development_area() {
     local date_str
     date_str=$(date +%Y-%m-%d)
     local spack_env_top_dir=${MY_SPACK_PROJECT:-"DAQ_${date_str}_${DEVNAME}"}
-    
+
     # Add package name to directory for 'proj' type
     if [[ "${pkg_type}" == "proj" ]]; then
         spack_env_top_dir="${spack_env_top_dir}_${DAQ_PKG_NAME}"
     fi
-    
-    # Add version to directory name
-    spack_env_top_dir="${spack_env_top_dir}_${version}"
+
+    # Add version to directory name only if MY_SPACK_PROJECT is not set
+    # (MY_SPACK_PROJECT already contains version per validation regex)
+    if [[ -z "${MY_SPACK_PROJECT:-}" ]]; then
+        spack_env_top_dir="${spack_env_top_dir}_${version}"
+    fi
 
     # Create DAQ areas directory and navigate to it
     if ! mkdir -p "${SPACK_DAQ_AREAS}/"; then
