@@ -1,5 +1,5 @@
 config:
-  build_jobs: 40
+  build_jobs: 24
   deprecated: true
   extensions:
   - $spack/../spack-mpd
